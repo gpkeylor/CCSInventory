@@ -23,7 +23,8 @@ namespace API.Database
             List<OverdueReport> overdueList = new List<OverdueReport>();
             while(rdr.Read())
             {
-                OverdueReport overdueReport = new OverdueReport(){EmpEmail = rdr.GetString(0), DaysOverdue = rdr.GetInt32(1)};
+                OverdueReport overdueReport = new OverdueReport(){EmpID = rdr.GetInt32(0), EmpEmail = rdr.GetString(1), 
+                                                                DaysOverdue = rdr.GetInt32(2)};
                 overdueList.Add(overdueReport);
             }
             return overdueList;
