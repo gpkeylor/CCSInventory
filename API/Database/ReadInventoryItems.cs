@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using API.Interfaces;
+using API.Interfaces.InventoryItemInterfaces;
 using API.Models;
 using MySql.Data.MySqlClient;
 
@@ -47,5 +48,6 @@ namespace API.Database
             InventoryItem item = new InventoryItem(){ItemID=rdr.GetInt32(0), ItemName=rdr.GetString(1), ItemComments = rdr.GetString(2), ItemCheckedOutStatus = rdr.GetInt32(3)};
             return item;
         }
+
     }
 }
