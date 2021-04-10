@@ -32,7 +32,6 @@ namespace api.Controllers
             return listOfOverdue;
         }
 
-
         // GET: api/inventory/5
         [EnableCors("AnotherPolicy")]
         [HttpGet("{id}", Name = "Get")]
