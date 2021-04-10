@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using MySql.Data.MySqlClient;
-using API.Models;
 using API.Interfaces;
+using API.Models;
+using MySql.Data.MySqlClient;
 
 namespace API.Database
 {
-    public class ReadTransction : IGetTransactions, IGetTransaction
+    public class ReadTransactions : IGetTransactions, IGetTransaction
     {
         public List<Transaction> GetAllTransactions()
         {
