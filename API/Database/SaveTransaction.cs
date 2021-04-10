@@ -1,3 +1,6 @@
+using API.Models;
+using MySql.Data.MySqlClient;
+
 namespace API.Database
 {
     public class SaveTransaction
@@ -46,7 +49,7 @@ namespace API.Database
 
             string stm = "DELETE FROM Transaction WHERE transactionID = @transactionID";
             using var cmd = new MySqlCommand(stm,con);
-            cmd.Parameters.AddWithValue("@transactionID", transaction.transactionID);
+            cmd.Parameters.AddWithValue("@transactionID", transaction.TransactionID);
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
