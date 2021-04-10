@@ -1,9 +1,10 @@
+using API.Interfaces.TransactionInterfaces;
 using API.Models;
 using MySql.Data.MySqlClient;
 
 namespace API.Database
 {
-    public class SaveTransaction
+    public class SaveTransaction : IAddTransaction, IDeleteTransaction, IUpdateTransactionReturnDate
     {
         public void AddTransaction(Transaction transaction) //Checkout Function
         {
