@@ -35,26 +35,29 @@
                 </div>
     
             </div>
-            <div class = "col-xs-4" id="headerwithborder">
-                <h1>Generate Reports</h1>
-                <button class ="btn-primary" onclick=""> Generate</button>
-                <button class ="btn-primary" onclick=""> Print</button>
-            </div>
-    
+
             <div class="col-xs-4" id="headerwithborder">
-                <h1>Select Specific Report</h1>
+                <h1>Select Report</h1>
                 <form onsubmit="">
                     <label for="report">Choose a report:</label>
                     <select name="report" id="report">
-                      <option value="Overdue" id="Overdue">Overdue Items</option>
-                      <option value="Lost" id="Lost">Lost Items</option>
-                      <option value="Newest" id="Newest">Newest First</option>
-                      <option value="Oldest" id="Oldest">Oldest First</option>
+                      <option value="Overdue" id="Overdue" style = color:black !important;>Overdue Items</option>
+                      <option value="Lost" id="Lost" style = color:black !important;>Lost Items</option>
+                      <option value="Newest" id="Newest" style = color:black !important;>Newest First</option>
+                      <option value="Oldest" id="Oldest" style = color:black !important;>Oldest First</option>
                     </select>
                     <br><br>
-                    <input type="submit" value="Submit">
-                  </form>
+                    <input type="submit" value="Submit" style = color:black !important;>
+                </form>
             </div>
+            
+            <div class = "col-xs-4" id="headerwithborder">
+                <h1>Generate</h1>
+                <button class ="btn-primary" onclick=""> Generate</button>
+                <button class ="btn-primary" onclick=""> Print</button>
+            </div>
+
+
         </div>
     
     </div>
