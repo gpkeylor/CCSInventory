@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCS Reports</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel ="stylesheet" href="./resources/css/reports.css">
+</head>
+<body style="background-color:rgb(44, 44, 44);">
+    <!--Nav Bar-->
+    <nav class="navbar navbar-inverse navbar-fixed-top  ">
+        <div class="container text-center">
+            <ul>
+                <img src="resources/images/transaction.png" id="transaction" />
+                <li class "a" li id="newtransaction"><a href="file:///D:/MIS%20321/HTMLmockup/index.html">New Transaction</a></li>
+                <img src="resources/images/report2.png" id="report" />
+                <li class "a"><a href="file:///D:/MIS%20321/HTMLmockup/reports.html">Reports</a></li>
+                <img src="resources/images/admin.png" id="report" />
+                <li class "a"><a href="">Admins</a></li>
+                <img src="resources/images/logout.png" id="report" />
+                <li class "a"><a href="">Logout</a></li>
+            </ul>
+        </div>  
+    </nav>
+
+
+    <div class="container">
+        <div class ="row">
+            <div class = "col-xs-4" id="headerwithborder">
+                <h1>Report Table</h1>
+                <div id ="reportTable">
+                    
+                </div>
+    
+            </div>
+            <div class = "col-xs-4" id="headerwithborder">
+                <h1>Generate Reports</h1>
+                <button class ="btn-primary" onclick=""> Generate</button>
+                <button class ="btn-primary" onclick=""> Print</button>
+            </div>
+    
+            <div class="col-xs-4" id="headerwithborder">
+                <h1>Select Specific Report</h1>
+                <form onsubmit="">
+                    <label for="report">Choose a report:</label>
+                    <select name="report" id="report">
+                      <option value="Overdue" id="Overdue">Overdue Items</option>
+                      <option value="Lost" id="Lost">Lost Items</option>
+                      <option value="Newest" id="Newest">Newest First</option>
+                      <option value="Oldest" id="Oldest">Oldest First</option>
+                    </select>
+                    <br><br>
+                    <input type="submit" value="Submit">
+                  </form>
+            </div>
+        </div>
+    
+    </div>
+    
+</body>
+</html>
