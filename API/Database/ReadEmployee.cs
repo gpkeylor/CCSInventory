@@ -7,6 +7,7 @@ namespace API.Database
 {
     public class ReadEmployee : IGetEmployees, IGetEmployee
     {
+        // gets all the employees
         public List<Employee> GetAllEmployees()
         {
             ConnectionString myConnection = new ConnectionString();
@@ -29,6 +30,7 @@ namespace API.Database
             return myEmployees;
         }
 
+        // finds a given employee, searches the database to find each individual
         public Employee GetEmployee(int empid)
         {
             ConnectionString myConnection = new ConnectionString();

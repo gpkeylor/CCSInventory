@@ -7,6 +7,7 @@ namespace API.Database
 {
     public class ReadTransactions : IGetTransactions, IGetTransaction
     {
+        //  gets the past transcations from db
         public List<Transaction> GetAllTransactions()
         {
             ConnectionString myConnection = new ConnectionString();
@@ -29,6 +30,7 @@ namespace API.Database
             }
             return myTransactions;
         }
+        // gets a given individual transaction
         public Transaction GetTransaction(int transactionid)
         {
             ConnectionString myConnection = new ConnectionString();

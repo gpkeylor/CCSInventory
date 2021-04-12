@@ -6,6 +6,7 @@ namespace API.Database
 {
     public class SaveInventoryItemData : IAddInventoryItem, IUpdateInventoryItem, IDeleteInventoryItem
     {
+        // if they want a new item to be added to inventory
         public void AddInventoryItem(InventoryItem item)
         {
             ConnectionString myConnection = new ConnectionString();
@@ -23,7 +24,7 @@ namespace API.Database
             
             cmd.ExecuteNonQuery();
         }
-
+        // edits or updates a current inventory item in our database 
         public void UpdateInventoryItemName(InventoryItem item)
         {
             ConnectionString myConnection = new ConnectionString();
@@ -40,6 +41,7 @@ namespace API.Database
             
             cmd.ExecuteNonQuery();
         }
+        // edits the comments on a given inventory item
         public void UpdateInventoryItemComments(InventoryItem item)
         {
             ConnectionString myConnection = new ConnectionString();
@@ -56,6 +58,7 @@ namespace API.Database
             
             cmd.ExecuteNonQuery();
         }
+        // updates the checked out status of an item
         public void UpdateInventoryItemCheckedOutStatus(InventoryItem item)
         {
             ConnectionString myConnection = new ConnectionString();
@@ -72,6 +75,7 @@ namespace API.Database
             
             cmd.ExecuteNonQuery();
         }
+        // deletes item entirely from the database
         public void DeleteInventoryItem(InventoryItem item)
         {
             ConnectionString myConnection = new ConnectionString();

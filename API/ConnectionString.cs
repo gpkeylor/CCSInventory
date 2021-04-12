@@ -1,5 +1,6 @@
 namespace API
 {
+    // using mySQL workbench
     public class ConnectionString
     {
         public string cs{get;  set;}

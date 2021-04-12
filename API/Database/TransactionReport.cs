@@ -5,7 +5,8 @@ using MySql.Data.MySqlClient;
 namespace API.Database
 {
     public class TransactionReport
-    {
+    { 
+        // checks to see if an item checked out is overdue or not
         public List<OverdueReport> OverdueStatus()
         {
             ConnectionString myConnection = new ConnectionString();
@@ -30,6 +31,7 @@ namespace API.Database
             }
             return overdueList;
         }
+        // if the item is lost the admin can hit 3 to mark it as lost
         public List<InventoryItem> LostItemsReport()
         {
             ConnectionString myConnection = new ConnectionString();
@@ -52,6 +54,7 @@ namespace API.Database
             return lostInventoryItems;
 
         }
+        // if an item that was checked out was damaged, the admin can press 2 to mark it as damaged
                 public List<InventoryItem> DamagedItemsReport()
         {
             ConnectionString myConnection = new ConnectionString();

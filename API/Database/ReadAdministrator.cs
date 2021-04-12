@@ -8,6 +8,7 @@ namespace API.Database
 {
     public class ReadAdministrator : IGetAdministrators, IGetAdministrator
     {
+        // gets the admin data
         public List<Administrator> GetAllAdministrators()
         {
             ConnectionString myConnection = new ConnectionString();
@@ -30,6 +31,7 @@ namespace API.Database
             return myAdministrators;
         }
 
+        // searches if admin ID exists
         public Administrator GetAdministrator(int adminid)
         {
             ConnectionString myConnection = new ConnectionString();

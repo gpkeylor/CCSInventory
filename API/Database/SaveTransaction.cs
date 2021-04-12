@@ -40,7 +40,7 @@ namespace API.Database
             
             cmd.ExecuteNonQuery();
         }
-        public void DeleteTransaction(Transaction transaction)
+        public void DeleteTransaction(Transaction transaction) //Deletes transaction from database
         {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;

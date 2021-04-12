@@ -8,6 +8,7 @@ namespace API.Database
 {
     public class ReadInventoryItems : IGetInventoryItems, IGetInventoryItem
     {
+        // gets all the items
         public List<InventoryItem> GetAllInventoryItems()
         {
             ConnectionString myConnection = new ConnectionString();
@@ -29,7 +30,7 @@ namespace API.Database
             }
             return myInventoryItems;
         }
-
+        // gets the given individual inventory item
         public InventoryItem GetInventoryItem(int itemid)
         {
             ConnectionString myConnection = new ConnectionString();
