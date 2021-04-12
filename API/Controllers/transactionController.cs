@@ -31,7 +31,14 @@ namespace api.Controllers
             List<OverdueReport> listOfOverdue = reportObject.OverdueStatus();
             return listOfOverdue;
         }
-
+        [EnableCors("AnotherPolicy")]
+        [HttpGet]
+        public List<InventoryItem> GetLostItemsReport()
+        {
+            TransactionReport reportObject = new TransactionReport();
+            List<InventoryItem> lostItems = reportObject.LostItemsReport();
+            return lostItems;
+        }
         // GET: api/inventory/5
         [EnableCors("AnotherPolicy")]
         [HttpGet("{id}", Name = "Get")]
