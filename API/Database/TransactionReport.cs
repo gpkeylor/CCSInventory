@@ -17,7 +17,7 @@ namespace API.Database
 
             string stm = "SELECT e.empid, e.empemail, DATEDIFF(CurDate(),t.duedate ) as daysoverdue " + 
                 "FROM transaction t join employee e on (t.empid = e.empid) WHERE DATEDIFF(CurDate(), t.duedate ) > 0 " +
-                "AND t.returndate is null";
+                "AND t.returndate  = '1001-01-01'";
             using var cmd = new MySqlCommand(stm,con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();

@@ -39,7 +39,7 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "SELECT * FROM Transaction WHERE transactionID = @transactionID";
+            string stm = "SELECT * FROM transaction WHERE transactionID = @transactionID";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@transactionID", transactionid);
             cmd.Prepare();
