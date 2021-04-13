@@ -55,7 +55,7 @@ namespace API.Database
 
         }
         // if an item that was checked out was damaged, the admin can press 2 to mark it as damaged
-                public List<InventoryItem> DamagedItemsReport()
+        public List<InventoryItem> DamagedItemsReport()
         {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
@@ -75,6 +75,50 @@ namespace API.Database
                 damagedInventoryItems.Add(temp);
             }
             return damagedInventoryItems;
+        }
+        public List<Transaction> TransactionsSortedByNewest()
+        {
+            ConnectionString myConnection = new ConnectionString();
+            string cs = myConnection.cs;
+            using var con = new MySqlConnection(cs);
+
+            con.Open();
+
+            string stm = "SELECT * FROM transaction ORDER BY checkoutdate desc"; // 
+            using var cmd = new MySqlCommand(stm,con);
+
+            using MySqlDataReader rdr = cmd.ExecuteReader();
+
+            List<Transaction> newest = new List<Transaction>();
+            while(rdr.Read())
+            {
+                Transaction temp = new Transaction(){TransactionID=rdr.GetInt32(0), EmpID = rdr.GetInt32(1),ItemID = rdr.GetInt32(2), CheckOutDate=rdr.GetDateTime(3), 
+                                                        DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), AdminID = rdr.GetInt32(6)};
+                newest.Add(temp);
+            }
+            return newest;
+        }
+        public List<Transaction> TransactionsSortedByOldest()
+        {
+            ConnectionString myConnection = new ConnectionString();
+            string cs = myConnection.cs;
+            using var con = new MySqlConnection(cs);
+
+            con.Open();
+
+            string stm = "SELECT * FROM transaction ORDER BY checkoutdate asc"; // 
+            using var cmd = new MySqlCommand(stm,con);
+
+            using MySqlDataReader rdr = cmd.ExecuteReader();
+
+            List<Transaction> oldest = new List<Transaction>();
+            while(rdr.Read())
+            {
+                Transaction temp = new Transaction(){TransactionID=rdr.GetInt32(0), EmpID = rdr.GetInt32(1),ItemID = rdr.GetInt32(2), CheckOutDate=rdr.GetDateTime(3), 
+                                                        DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), AdminID = rdr.GetInt32(6)};
+                oldest.Add(temp);
+            }
+            return oldest;
         }
     }
 }

@@ -44,6 +44,22 @@ namespace api.Controllers
             List<InventoryItem> damagedItems = reportObject.DamagedItemsReport();
             return damagedItems;
         }
+        [EnableCors("AnotherPolicy")]
+        [HttpGet("Newest")]
+        public List<Transaction> TransactionsSortedByNewest()
+        {
+            TransactionReport reportObject = new TransactionReport();
+            List<Transaction> newest = reportObject.TransactionsSortedByNewest();
+            return newest;
+        }
+        [EnableCors("AnotherPolicy")]
+        [HttpGet("Oldest")]
+        public List<Transaction> TransactionsSortedByOldest()
+        {
+            TransactionReport reportObject = new TransactionReport();
+            List<Transaction> oldest = reportObject.TransactionsSortedByOldest();
+            return oldest;
+        }
 
         // GET: api/report/5
         [HttpGet("{id}", Name = "Getitt")]
