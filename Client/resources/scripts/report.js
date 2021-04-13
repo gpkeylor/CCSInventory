@@ -12,8 +12,6 @@ function getReport(report){
     });
 }
 
-
-
 function handleOnChange(){
     const report = document.getElementById("report").value;
     if(report != "none"){
@@ -22,5 +20,12 @@ function handleOnChange(){
 }
 
 function displayReport(report){
-    let html = "<>";
+    let html = "<table>";
+    html+= "<tr><th><b>EmpID</th><th><b>EmpEmail</th><th><b>Days Overdue</th></tr>";
+    json.forEach((report) => {
+        html+= "<tr><td>" + report.empID + 
+        "</td><td>" + report.empEmail + "</td></tr>" +report.daysOverdue + "</td></tr>"
+    });
+    html+= "</table>";
+    document.getElementById("reportTable").innerHTML = html;
 }
