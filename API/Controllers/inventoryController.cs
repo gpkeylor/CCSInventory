@@ -45,21 +45,21 @@ namespace api.Controllers
 
         // PUT: api/inventory/5
         [EnableCors("AnotherPolicy")]
-        [HttpPut("{id}")]
+        [HttpPut("itemname/{id}")]
         public void PutItemName(int id, [FromBody] InventoryItem item)
         {
             IUpdateInventoryItem updateObject = new SaveInventoryItemData();
             updateObject.UpdateInventoryItemName(item);
         }
         [EnableCors("AnotherPolicy")]
-        [HttpPut("{id}")]
+        [HttpPut("itemcomments/{id}")]
         public void PutItemComments(int id, [FromBody] InventoryItem item)
         {
             IUpdateInventoryItem updateObject = new SaveInventoryItemData();
             updateObject.UpdateInventoryItemName(item);
         }
         [EnableCors("AnotherPolicy")]
-        [HttpPut("{id}")]
+        [HttpPut("itemcheckedoutstatus/{id}")]
         public void PutItemCheckedOutStatus(int id, [FromBody] InventoryItem item)
         {
             IUpdateInventoryItem updateObject = new SaveInventoryItemData();
