@@ -9,6 +9,7 @@
     <link rel ="stylesheet" href="./resources/css/reports.css">
 </head>
 <body style="background-color:rgb(44, 44, 44);">
+    <script type="text/Javascript" src="./resources/scripts/report.js"></script>
     <!--Nav Bar-->
     <nav class="navbar navbar-inverse navbar-fixed-top  ">
         <div class="container text-center">
@@ -40,7 +41,8 @@
                 <h1>Select Report</h1>
                 <form onsubmit="">
                     <label for="report">Choose a report:</label>
-                    <select name="report" id="report">
+                    <select onchange = "handleOnChange()" name="report" id="report">
+                      <option value="none" id="none" style = color:black !important;>-Choose A Report-</option>
                       <option value="Overdue" id="Overdue" style = color:black !important;>Overdue Items</option>
                       <option value="Lost" id="Lost" style = color:black !important;>Lost Items</option>
                       <option value="Newest" id="Newest" style = color:black !important;>Newest First</option>
