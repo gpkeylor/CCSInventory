@@ -17,7 +17,7 @@ namespace API.Database
 
             string stm = "SELECT e.empid, e.empemail, t.itemID, t.itemname, DATEDIFF(day, t.duedate, GetDate()) as daysoverdue," + 
                 "FROM transaction t join employee e on (t.empid = e.empid) WHERE DATEDIFF(day, t.duedate, GetDate()) > 0" +
-                "AND t.returndate is null";
+                "AND t.returndate = '0000-00-00'";
             using var cmd = new MySqlCommand(stm,con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();

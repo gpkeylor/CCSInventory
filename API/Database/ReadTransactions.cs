@@ -16,7 +16,7 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "SELECT * FROM Transaction";
+            string stm = "SELECT * FROM transaction";
             using var cmd = new MySqlCommand(stm,con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();

@@ -23,25 +23,10 @@ namespace api.Controllers
             IGetTransactions readObject = new ReadTransactions();
             return readObject.GetAllTransactions();
         }
-        [EnableCors("AnotherPolicy")]
-        [HttpGet]
-        public List<OverdueReport> GetOverdueReport()
-        {
-            TransactionReport reportObject = new TransactionReport();
-            List<OverdueReport> listOfOverdue = reportObject.OverdueStatus();
-            return listOfOverdue;
-        }
-        [EnableCors("AnotherPolicy")]
-        [HttpGet]
-        public List<InventoryItem> GetLostItemsReport()
-        {
-            TransactionReport reportObject = new TransactionReport();
-            List<InventoryItem> lostItems = reportObject.LostItemsReport();
-            return lostItems;
-        }
+    
         // GET: api/inventory/5
         [EnableCors("AnotherPolicy")]
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "Getit")]
         public Transaction Get(int id)
         {
             IGetTransaction readObject = new ReadTransactions();
