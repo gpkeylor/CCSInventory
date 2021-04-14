@@ -14,9 +14,9 @@ namespace API.Models
 
         public Transaction() //when a new transaction is created sets DueDate to two weeks from day of checkout
         {
-            DueDate = DateTime.Now.AddDays(14);
-            CheckOutDate = DateTime.Now;
-            ReturnDate = new DateTime(1001,1,1);
+            DueDate = DateTime.Now.AddDays(14); 
+            CheckOutDate = DateTime.Now; //current date that the transaction is instantiated
+            ReturnDate = new DateTime(1001,1,1); //acts as a placeholder - basically same as a null value until the item is returned and the return date is updated
         }
         
         

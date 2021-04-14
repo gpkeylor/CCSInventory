@@ -17,7 +17,7 @@ namespace API.Database
 
             string stm = "SELECT e.empid, e.empemail, DATEDIFF(CurDate(),t.duedate ) as daysoverdue " + 
                 "FROM transaction t join employee e on (t.empid = e.empid) WHERE DATEDIFF(CurDate(), t.duedate ) > 0 " +
-                "AND t.returndate  = '1001-01-01'";
+                "AND t.returndate  = '1001-01-01'";  //'1001-01-01' is a placeholder for null values (items that haven't been returned yet)
             using var cmd = new MySqlCommand(stm,con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
@@ -76,6 +76,8 @@ namespace API.Database
             }
             return damagedInventoryItems;
         }
+
+        //Returns list of transaction sorted by the newest checkoutdate
         public List<Transaction> TransactionsSortedByNewest()
         {
             ConnectionString myConnection = new ConnectionString();
@@ -84,7 +86,7 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "SELECT * FROM transaction ORDER BY checkoutdate desc"; // 
+            string stm = "SELECT * FROM transaction ORDER BY checkoutdate desc"; 
             using var cmd = new MySqlCommand(stm,con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
@@ -98,6 +100,7 @@ namespace API.Database
             }
             return newest;
         }
+        //Returns list of transaction sorted by the oldest checkoutdate
         public List<Transaction> TransactionsSortedByOldest()
         {
             ConnectionString myConnection = new ConnectionString();
@@ -106,7 +109,7 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "SELECT * FROM transaction ORDER BY checkoutdate asc"; // 
+            string stm = "SELECT * FROM transaction ORDER BY checkoutdate asc"; 
             using var cmd = new MySqlCommand(stm,con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();

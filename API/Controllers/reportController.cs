@@ -14,13 +14,7 @@ namespace api.Controllers
     [ApiController]
     public class reportController : ControllerBase
     {
-        // GET: api/report
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
+        // GET: api/report/lost
         [EnableCors("AnotherPolicy")]
         [HttpGet("Lost")]
         public List<InventoryItem> GetLostItemsReport()
@@ -29,6 +23,7 @@ namespace api.Controllers
             List<InventoryItem> lostItems = reportObject.LostItemsReport();
             return lostItems;
         }
+        // GET: api/report/overdue
         [HttpGet("Overdue")]
         public List<OverdueReport> GetOverdueReport()
         {
@@ -36,6 +31,7 @@ namespace api.Controllers
             List<OverdueReport> listOfOverdue = reportObject.OverdueStatus();
             return listOfOverdue;
         }
+        // GET: api/report/damaged
         [EnableCors("AnotherPolicy")]
         [HttpGet("Damaged")]
         public List<InventoryItem> GetDamagedItemsReport()
@@ -44,6 +40,7 @@ namespace api.Controllers
             List<InventoryItem> damagedItems = reportObject.DamagedItemsReport();
             return damagedItems;
         }
+        // GET: api/report/newest
         [EnableCors("AnotherPolicy")]
         [HttpGet("Newest")]
         public List<Transaction> TransactionsSortedByNewest()
@@ -52,6 +49,7 @@ namespace api.Controllers
             List<Transaction> newest = reportObject.TransactionsSortedByNewest();
             return newest;
         }
+        // GET: api/report/oldest
         [EnableCors("AnotherPolicy")]
         [HttpGet("Oldest")]
         public List<Transaction> TransactionsSortedByOldest()
@@ -60,7 +58,12 @@ namespace api.Controllers
             List<Transaction> oldest = reportObject.TransactionsSortedByOldest();
             return oldest;
         }
-
+        // GET: api/report
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
         // GET: api/report/5
         [HttpGet("{id}", Name = "Getitt")]
         public string Get(int id)

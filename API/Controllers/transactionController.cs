@@ -44,7 +44,7 @@ namespace api.Controllers
         // PUT: api/transaction/5
         [EnableCors("AnotherPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Transaction item)
+        public void Put(int id, [FromBody] Transaction item) //Used when returning an item to update it to current date
         {
             IUpdateTransactionReturnDate updateObject = new SaveTransaction();
             updateObject.UpdateTransactionReturnDate(item);

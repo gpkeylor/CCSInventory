@@ -6,7 +6,7 @@ namespace API.Database
 {
     public class SaveTransaction : IAddTransaction, IDeleteTransaction, IUpdateTransactionReturnDate
     {
-        public void AddTransaction(Transaction transaction) //Checkout Function
+        public void AddTransaction(Transaction transaction) //Checkout Function 
         {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
@@ -24,8 +24,8 @@ namespace API.Database
             cmd.ExecuteNonQuery();
         }
 
-        public void UpdateTransactionReturnDate(Transaction transaction) //ReturnTransaction
-        {
+        public void UpdateTransactionReturnDate(Transaction transaction) //ReturnTransaction - Asks user to enter current date 
+        {                                                                  //We could change this to set returndate = CurDate() as well 
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             using var con = new MySqlConnection(cs);

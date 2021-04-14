@@ -1,10 +1,11 @@
 namespace API
 {
-    // using mySQL workbench
+    
     public class ConnectionString
     {
         public string cs{get;  set;}
 
+        // using mySQL workbench to see the database values 
         public ConnectionString()
         {
             string server = "jhdjjtqo9w5bzq2t.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";

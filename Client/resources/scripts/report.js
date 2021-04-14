@@ -1,6 +1,6 @@
 
 function getReport(report){
-    const apiURL = "https://localhost:5001/api/transaction" + value//= overdue
+    const apiURL = "https://localhost:5001/api/report/" + value//= overdue
     fetch(api.URL).then(function(response){
         console.log(response);
         return response.json();
