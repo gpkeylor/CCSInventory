@@ -42,7 +42,7 @@ function getInventoryItem()
     });
 }
 // gets all employees 
-function getInventoryItem()
+function getEmployee()
 {
     const allEmpApiUrl = "https://localhost:5001/api/employee";
     fetch(allEmpApiUrl).then(function(response)
