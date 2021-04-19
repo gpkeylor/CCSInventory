@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Database;
+using API.Interfaces;
+using API.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,17 +16,21 @@ namespace api.Controllers
     public class employeeController : ControllerBase
     {
         // GET: api/employee
+        [EnableCors("AnotherPolicy")]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Employee> Get()
         {
-            return new string[] { "value1", "value2" };
+            IGetEmployees readObject = new ReadEmployee();
+            return readObject.GetAllEmployees();
         }
 
         // GET: api/employee/5
-        [HttpGet("{id}", Name = "Getqq")]
-        public string Get(int id)
+        [EnableCors("AnotherPolicy")]
+        [HttpGet("{id}", Name = "Gettttt")]
+        public Employee Get(int id)
         {
-            return "value";
+            IGetEmployee readObject = new ReadEmployee();
+            return readObject.GetEmployee(id);
         }
 
         // POST: api/employee

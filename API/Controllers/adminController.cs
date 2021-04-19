@@ -2,6 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Database;
+using API.Interfaces;
+using API.Interfaces.AdministratorInterfaces;
+using API.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,17 +17,21 @@ namespace api.Controllers
     public class adminController : ControllerBase
     {
         // GET: api/admin
+        [EnableCors("AnotherPolicy")]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Administrator> Get()
         {
-            return new string[] { "value1", "value2" };
+            IGetAdministrators readObject = new ReadAdministrator();
+            return readObject.GetAllAdministrators();
         }
 
         // GET: api/admin/5
-        [HttpGet("{id}", Name = "Getaa")]
-        public string Get(int id)
+        [EnableCors("AnotherPolicy")]
+        [HttpGet("{id}", Name = "Getqqq")]
+        public Administrator Get(int id)
         {
-            return "value";
+            IGetAdministrator readObject = new ReadAdministrator();
+            return readObject.GetAdministrator(id);
         }
 
         // POST: api/admin

@@ -16,7 +16,7 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "SELECT * FROM Employee";
+            string stm = "SELECT * FROM employee";
             using var cmd = new MySqlCommand(stm,con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
@@ -39,7 +39,7 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "SELECT * FROM Employee WHERE empID = @EmpID";
+            string stm = "SELECT * FROM employee WHERE empID = @EmpID";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@empID", empid);
             cmd.Prepare();
