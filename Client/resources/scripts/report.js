@@ -14,6 +14,7 @@ function getReport(report){
 
 function handleOnChange(){
     const report = document.getElementById("report").value;
+    console.log(value)
     if(report != "none"){
         getReport(report);
     }
