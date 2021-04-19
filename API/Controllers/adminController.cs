@@ -19,7 +19,7 @@ namespace api.Controllers
         }
 
         // GET: api/admin/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "Getaa")]
         public string Get(int id)
         {
             return "value";
