@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrator Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel ="stylesheet" href="./resources/css/admin.css">
 </head>
-<body>
+<body style="background-color:rgb(44, 44, 44);">
+    <script src="./resources/scripts/admin.js"></script>
+        <!--Nav Bar-->
+        <nav class="navbar navbar-inverse navbar-fixed-top  ">
+            <div class="container text-center">
+                <ul>
+                    <!-- <img src="resources/images/transaction.png" id="transaction" />
+                    <li class "a" li id="newtransaction"><a href="./index.html">New Transaction</a></li> -->
+                    <img src="resources/images/report2.png" id="report" />
+                    <li class "a"><a href="./reports.html">Reports</a></li>
+                    <img src="resources/images/admin.png" id="admin" />
+                    <li class "a"><a href="./admin.html">Admins</a></li>
+                    <img src="resources/images/logout.png" id="logout" />
+                    <li class "a"><a href="">Logout</a></li>
+                </ul>
+            </div>  
+        </nav>
+    <div class="jumbotron text-center">
+        <h1 class="display-4" id="jumbotrontext">Please Enter Your Administrator ID</h1>
+        <p class="lead">Please enter the Administrator ID to be able to make a transaction</p>
+    </div>
 
+    <div class="text-center text-md-left">
+        <input type="text" placeholder="Administrator ID" class="mytext" style = color:black !important;>
+        <a class="btn btn-primary" onclick="GetAdministrator()">Submit</a>
+    </div>      
 </body>
 </html>
