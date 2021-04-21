@@ -4,9 +4,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrator Page</title>
+    <title>CSS Inventory Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel ="stylesheet" href="./resources/css/index.css">
 </head>
-<body >
-    
+    <body style="background-color: rgb(209, 203, 203);">
+<script src="./resources/scripts/index.js"></script>
+    <!--Nav Bar-->
+    <nav class="navbar navbar-inverse navbar-fixed-top  ">
+        <div class="container text-center">
+            <ul>
+                <img src="resources/images/transaction.png" id="transaction" />
+                <li class "a" li id="newtransaction"><a href="">New Transaction</a></li>
+                <img src="resources/images/report2.png" id="report" />
+                <li class "a"><a href="./reports.html">Reports</a></li>
+                <img src="resources/images/admin.png" id="admin" />
+                <!--<li class "a"><a href="./admin.html">Admins</a></li>
+                <img src="resources/images/logout.png" id="logout" />-->
+                <li class "a"><a href="./home.html">Logout</a></li>
+            </ul>
+        </div>  
+    </nav>
+    <!-- Banner Section-->
+    <div class="jumbotron text-center">
+        <h1 class="display-4" id="jumbotrontext">Please Enter Employee ID</h1>
+        <p class="lead">Please enter an employee's ID to start a transaction.</p>
+    </div>
+
+
+    <!--Submit Button-->
+    <div class="text-center text-md-left">
+        <input type="text" placeholder="Employee ID" class="mytext" style = color:black !important;>
+        <a class="btn btn-primary" onclick="">Submit</a>
+    </div>
+     
+    <!--Information Columns-->
+    <div class = "container">
+        <div class="row">
+            <div class="col-xs-4 " id="headerwithborder">
+                <div class="col-md-12">
+                <h1> Borrower Info</h1>
+                <p> Name :</p>
+                <label id="lblName"></label><br>
+                <input id="lfname" name="fname" type="text" style = color:black !important; /><br>
+                <p> Employee ID :</p>
+                <label id="lblEmployeeID"></label> <br>
+                <input id="lEmID" name="EmID" type="text" style = color:black !important; /><br>
+                </div>
+                
+            </div> 
+            <div class="col-xs-4" id="headerwithborder">
+                <div class="col-md-12">
+                <h1> Equipment</h1>
+                <p>Please select what you would like to checkout:</p>
+                <input type="radio" id="laptop" name="equipment" value="laptop">
+                <label for="laptop">Laptop</label><br>
+                <input type="radio" id="ethernetcable" name="equipment" value="ethernetcable">
+                <label for="ethernetcable">Ethernet Cable</label><br>
+                <input type="radio" id="digitalcamera" name="equipment" value="digitalcamera">
+                <label for="other">Digital Camera</label><br>
+                <input type="radio" id="monitor" name="equipment" value="monitor">
+                <label for="other">Monitor</label><br>
+                <input type="radio" id="headphones" name="equipment" value="headphones">
+                <label for="other">Headphones</label><br>
+                </div> 
+            </div>
+            <div class="col-xs-4" id="headerwithborder">
+                <div class="col-md-12">
+                    <h1>Comments</h1>
+                    <input type="text" placeholder="" class="comments" style = color:black !important;>   
+                </div> 
+            </div>
+        </div>
+
+
+        
+        <!-- <div class="submitbutton">
+                <button type="submit"> Submit</button>
+        </div> -->
+    </div>     
+   
 </body>
 </html>

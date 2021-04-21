@@ -69,12 +69,12 @@ li a
     font-size: 25px;
     border-radius: 25px;
     border: 10px inset crimson;
-    background-color: rgb(44, 44, 44);
+    background-color:transparent;
     top: 8px;
-    color: #6A6A6A;
+    color: #0f0e0e;
     height: 35px;    
     width: 50px;
-    margin-left: 382px;
+    margin-left: 250px;
     /* text-align: center; */
     width: 60%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -83,7 +83,7 @@ li a
     font-size: 30px;
     margin-top: -35px;  
     left:10px;
-    color:rgb(255, 255, 255);
+    color:rgb(19, 15, 15)
 }
 
 .borrowerinfo
@@ -113,6 +113,7 @@ li a
 .comments
 {
     text-align: center;
+
     display: inline-block;
     width: 300px;
     height: 100px;
@@ -132,7 +133,7 @@ li a
 }
 
 #headerwithborder h1 {
-    color: white;
+    color: rgb(14, 12, 12);
     width: 300px;
     height: 100px;
     padding: 20px;
@@ -142,7 +143,7 @@ li a
   }
   
   .col-xs-4{
-    color: white;
+    color: rgb(22, 20, 20);
     border-width: 3px;
     border-style: solid;
     border-image: 
@@ -156,7 +157,7 @@ li a
 
   .row{
     margin-top: 50px;
-    color: white;
+    color: rgb(14, 13, 13);
   }
 
   .empsubmitbutton
