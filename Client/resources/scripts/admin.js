@@ -15,7 +15,10 @@ function getAdministrator()
             {
               //  console.log(administrator.adminID);
                // document.getElementById("administrator").setAttribute("href","./transactions.html");
-               window.location ="\Client\adminFunctions.html";
+               window.location ="\adminFunctions.html";
+            }
+            else{
+                displayErrorMessage();
             }
         });
        
@@ -23,4 +26,9 @@ function getAdministrator()
     {
         console.log(error);
     });
+}
+
+function displayErrorMessage(){
+    let html = "<p style = color:red !important;>Error! Invalid AdminID. Please enter a valid AdminID.</p>";
+    document.getElementById("errormessage").innerHTML = html;
 }

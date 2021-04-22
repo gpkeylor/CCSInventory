@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kalia\\CCSInventory\\api\\api.csproj": {}
+    "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kalia\\CCSInventory\\api\\api.csproj": {
+    "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kalia\\CCSInventory\\api\\api.csproj",
+        "projectUniqueName": "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\kalia\\CCSInventory\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\kalia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kalia\\CCSInventory\\api\\obj\\",
+        "projectPath": "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\brade\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kalia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\brade\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
