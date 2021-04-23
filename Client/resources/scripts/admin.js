@@ -1,4 +1,3 @@
-//get the administrator
 function getAdministrator()
 {
     const allAdmApiUrl = "https://localhost:5001/api/admin";
@@ -13,12 +12,8 @@ function getAdministrator()
         json.forEach(administrator => {
             if (administrator.adminID == enteredId)
             {
-              //  console.log(administrator.adminID);
-               // document.getElementById("administrator").setAttribute("href","./transactions.html");
-               window.location ="\adminFunctions.html";
-            }
-            else{
-                displayErrorMessage();
+              
+               window.location ="\ transaction.html";
             }
         });
        
@@ -26,7 +21,7 @@ function getAdministrator()
     {
         console.log(error);
     });
-}
+}  
 
 function displayErrorMessage(){
     let html = "<p style = color:red !important;>Error! Invalid AdminID. Please enter a valid AdminID.</p>";
