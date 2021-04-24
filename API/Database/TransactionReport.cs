@@ -48,7 +48,7 @@ namespace API.Database
             List<InventoryItem> lostInventoryItems = new List<InventoryItem>();
             while(rdr.Read())
             {
-                InventoryItem temp = new InventoryItem(){ItemID=rdr.GetInt32(0), ItemName=rdr.GetString(1), ItemComments = rdr.GetString(2), ItemCheckedOutStatus = rdr.GetInt32(3)};
+                InventoryItem temp = new InventoryItem(){ItemID=rdr.GetInt32(0), ItemName=rdr.GetString(1), ItemComments = rdr.GetString(2), DateCommentsUpdated = rdr.GetDateTime(3), ItemCheckedOutStatus = rdr.GetInt32(4)};
                 lostInventoryItems.Add(temp);
             }
             return lostInventoryItems;
@@ -71,7 +71,7 @@ namespace API.Database
             List<InventoryItem> damagedInventoryItems = new List<InventoryItem>();
             while(rdr.Read())
             {
-                InventoryItem temp = new InventoryItem(){ItemID=rdr.GetInt32(0), ItemName=rdr.GetString(1), ItemComments = rdr.GetString(2), ItemCheckedOutStatus = rdr.GetInt32(3)};
+                InventoryItem temp = new InventoryItem(){ItemID=rdr.GetInt32(0), ItemName=rdr.GetString(1), ItemComments = rdr.GetString(2),  DateCommentsUpdated = rdr.GetDateTime(3), ItemCheckedOutStatus = rdr.GetInt32(4)};
                 damagedInventoryItems.Add(temp);
             }
             return damagedInventoryItems;

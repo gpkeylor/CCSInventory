@@ -24,6 +24,7 @@ namespace api.Controllers
             return lostItems;
         }
         // GET: api/report/overdue
+        [EnableCors("AnotherPolicy")]
         [HttpGet("Overdue")]
         public List<OverdueReport> GetOverdueReport()
         {
