@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel ="stylesheet" href="./resources/css/index.css">
 </head>
-    <body style="background-color: rgb(209, 203, 203);">
-<script src="./resources/scripts/index.js"></script>
+    <body onload = "displayInventoryItemNames()" style="background-color: rgb(209, 203, 203);">
+<script src="./resources/scripts/transaction.js"></script>
     <!--Nav Bar-->
     <nav class="navbar navbar-inverse navbar-fixed-top  ">
         <div class="container text-center">
@@ -34,9 +34,13 @@
 
     <!--Submit Button-->
     <div class="text-center text-md-left">
-        <input type="text" placeholder="Employee ID" class="mytext" style = color:black !important;>
-        <a class="btn btn-primary" onclick="">Submit</a>
+        <input id="empID" type="text" placeholder="Employee ID" class="mytext" style = color:black !important;>
+        <a class="btn btn-primary" onclick="checkEmployeeEligibility()">Submit</a>
+        <div class="text-center text-md-left" id = "employeeEligibility">
+
+        </div>
     </div>
+
      
     <!--Information Columns-->
     <div class = "container">
@@ -47,17 +51,20 @@
                 <p> Name :</p>
                 <label id="lblName"></label><br>
                 <input id="lfname" name="fname" type="text" style = color:black !important; /><br>
-                <p> Employee ID :</p>
+                <p> Employee Email :</p>
                 <label id="lblEmployeeID"></label> <br>
-                <input id="lEmID" name="EmID" type="text" style = color:black !important; /><br>
+                <input id="lEmEmail" name="lEmEmail" type="text" style = color:black !important; /><br>
                 </div>
                 
             </div> 
             <div class="col-xs-4" id="headerwithborder">
-                <div class="col-md-12">
+                <div  class="col-md-12" >
                 <h1> Equipment</h1>
                 <p>Please select what you would like to checkout:</p>
-                <input type="radio" id="laptop" name="equipment" value="laptop">
+                <div id="itemnames">
+
+                </div>
+                <!--<input type="radio" id="laptop" name="equipment" value="laptop">
                 <label for="laptop">Laptop</label><br>
                 <input type="radio" id="ethernetcable" name="equipment" value="ethernetcable">
                 <label for="ethernetcable">Ethernet Cable</label><br>
@@ -66,8 +73,8 @@
                 <input type="radio" id="monitor" name="equipment" value="monitor">
                 <label for="other">Monitor</label><br>
                 <input type="radio" id="headphones" name="equipment" value="headphones">
-                <label for="other">Headphones</label><br>
-                </div> 
+                <label for="other">Headphones</label><br>  -->
+                </div>
             </div>
             <div class="col-xs-4" id="headerwithborder">
                 <div class="col-md-12">
@@ -76,13 +83,25 @@
                 </div> 
             </div>
         </div>
-
-
         
-        <!-- <div class="submitbutton">
-                <button type="submit"> Submit</button>
-        </div> -->
-    </div>     
+    </div>   
+    <div class = "container">
+        <div class="row">
+            <div class="col-xs-4 " id="headerwithborder">
+                <div class="col-md-12">
+                    <h1> Return Item</h1>
+                    
+                </div>     
+            </div>
+        </div>
+    </div>
+    <div id="empTransactions">
+
+    </div>
+    <div class="submitbutton">
+        <button type="submit"> Submit</button>
+</div> 
+         
    
 </body>
 </html>

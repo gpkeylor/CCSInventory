@@ -15,7 +15,7 @@ function getAdministrator()
             {
               //  console.log(administrator.adminID);
                // document.getElementById("administrator").setAttribute("href","./transactions.html");
-               window.location ="\adminFunctions.html";
+               window.location ="\ transaction.html";
             }
             else{
                 displayErrorMessage();
