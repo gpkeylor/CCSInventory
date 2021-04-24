@@ -15,12 +15,12 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "INSERT INTO inventoryitem (itemname, itemcomments, itemcheckedoutstatus, dateitemstatusupdated) VALUES (@itemname, @itemcomments, @itemcheckedoutstatus,  @dateitemstatusupdated)";
+            string stm = "INSERT INTO inventoryitem (itemname, itemcomments, itemcheckedoutstatus, datecommentsupdated) VALUES (@itemname, @itemcomments, @itemcheckedoutstatus,  @datecommentsupdated)";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@itemname", item.ItemName);
             cmd.Parameters.AddWithValue("@itemcomments", item.ItemComments);
             cmd.Parameters.AddWithValue("@itemcheckedoutstatus", item.ItemCheckedOutStatus);
-            cmd.Parameters.AddWithValue("@dateitemstatusupdated", item.DateItemStatusUpdated);
+            cmd.Parameters.AddWithValue("@datecommentsupdated", item.DateCommentsUpdated);
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
@@ -51,7 +51,7 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "UPDATE inventoryitem SET itemcomments = @itemcomments WHERE itemID = @itemID";
+            string stm = "UPDATE inventoryitem SET itemcomments = @itemcomments AND datecommentsupdated = CurDate() WHERE itemID = @itemID";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@itemID", item.ItemID);
             cmd.Parameters.AddWithValue("@itemname", item.ItemComments);

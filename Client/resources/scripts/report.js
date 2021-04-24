@@ -1,6 +1,6 @@
 
 function getReport(report){
-    const apiURL = "https://localhost:5001/api/report/" + value//= overdue
+    const apiURL = "https://localhost:5001/api/report/" + report//= overdue
     fetch(api.URL).then(function(response){
         console.log(response);
         return response.json();
@@ -21,6 +21,7 @@ function handleOnChange(){
 }
 
 function displayReport(report){
+    console.log("in display report ")
     let html = "<table>";
     html+= "<tr><th><b>EmpID</th><th><b>EmpEmail</th><th><b>Days Overdue</th></tr>";
     json.forEach((report) => {
