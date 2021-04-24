@@ -10,24 +10,9 @@
 </head>
 <body style="background-color:rgb(209, 203, 203);">
     <script src="./resources/scripts/admin.js"></script>
-        <!--Nav Bar-->
-      <!--<nav class="navbar navbar-inverse navbar-fixed-top  ">
-            <div class="container text-center">
-                <ul>
-                    <img id="csis" src="./resources/images/ccs.png" alt="">
-                    
-                     <img src="resources/images/report2.png" id="report" />
-                    <li class "a"><a href="./reports.html">Reports</a></li>
-                    <img src="resources/images/admin.png" id="admin" />
-                    <li class "a"><a href="./admin.html">Admins</a></li>
-                    <img src="resources/images/logout.png" id="logout" />
-                    <li class "a"><a href="">Logout</a></li> 
-                </ul>
-            </div>  
-        </nav>-->
 
     <div class="banner">
-        <img id="csis" src="./resources/images/Capstone.png" alt="">
+        <!-- <img id="csis" src="./resources/images/Capstone.png" alt=""> -->
         <h1>Capstone Consulting Services - Inventory</h1>
        
     </div>
@@ -37,16 +22,12 @@
         <h1 class="display-4" id="jumbotrontext">Welcome! Please enter your Administrator ID</h1>
         <p class="lead">Enter your Administrator ID to be able to make transactions and to view reports</p>
     </div>
-    <!-- <form onsubmit = "return false"; method = "post">
-        <input type ="number" name = "post" id = "administrator"/>
-        <input type="submit"value="submit" onclick = "getAdministrator()" />
-    </form> -->
+
     <div class="text-center text-md-left" >
         <input type="text" placeholder="Administrator ID" class="mytext" id="administrator" style = color:black !important;>
         <a class="btn btn-primary" onclick="getAdministrator()">Submit</a>
-    </div>    
-    <div class="text-center text-md-left" id="errormessage" >
-        
-    </div>
+    </div>      
+
+    
 </body>
 </html>
