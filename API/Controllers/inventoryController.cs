@@ -33,6 +33,14 @@ namespace api.Controllers
             IGetInventoryItem readObject = new ReadInventoryItems();
             return readObject.GetInventoryItem(id);
         }
+        [EnableCors("AnotherPolicy")]
+        [HttpGet ("ItemNames")]
+        //Gets all distinct item names of inventoryitems avaialable to rent (items not checkedout and not damaged or missing)
+        public List<ItemName> GetInventoryNamesToCheckout() 
+        {
+            ReadInventoryItems readObject = new ReadInventoryItems();
+            return readObject.GetInventoryItemNamesAvaialableToCheckOut();
+        }
 
         // InventoryItem: api/inventory
         [EnableCors("AnotherPolicy")]

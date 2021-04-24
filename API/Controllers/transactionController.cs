@@ -23,8 +23,25 @@ namespace api.Controllers
             IGetTransactions readObject = new ReadTransactions();
             return readObject.GetAllTransactions();
         }
+        //GET: api/transactions/emptransactions
+        [EnableCors("AnotherPolicy")]
+        [HttpGet ("emptransactions")]
+        public List<Transaction> GetEmployeeTransactions(int empid)
+        {
+            IGetEmployeeTransactions readObject = new ReadTransactions();
+            return readObject.GetEmployeeTransactions(empid);
+        }
+        //GET: api/transactions/emptransactionsreturn
+        [EnableCors("AnotherPolicy")]
+        [HttpGet ("emptransactionsreturn")]
+        public List<Transaction> GetUnreturnedEmployeeTransactions(int empid)
+        {
+            ReadTransactions readObject = new ReadTransactions();
+            return readObject.GetEmployeeTransactionsToReturn(empid);
+        }
+
     
-        // GET: api/inventory/5
+        // GET: api/transaction/5
         [EnableCors("AnotherPolicy")]
         [HttpGet("{id}", Name = "Getit")]
         public Transaction Get(int id)
@@ -33,7 +50,7 @@ namespace api.Controllers
             return readObject.GetTransaction(id);
         }
 
-        // Transaction: api/inventory
+        // Transaction: api/transaction
         [EnableCors("AnotherPolicy")]
         [HttpPost]
         public void Transaction([FromBody] Transaction transaction)

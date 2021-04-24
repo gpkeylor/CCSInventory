@@ -49,6 +49,28 @@ namespace API.Database
             InventoryItem item = new InventoryItem(){ItemID=rdr.GetInt32(0), ItemName=rdr.GetString(1), ItemComments = rdr.GetString(2), ItemCheckedOutStatus = rdr.GetInt32(3)};
             return item;
         }
+        //Gets all distinct item names of inventoryitems avaialable to rent (items not checkedout and not damaged or missing)
+        public List<ItemName> GetInventoryItemNamesAvaialableToCheckOut()
+        {
+            ConnectionString myConnection = new ConnectionString();
+            string cs = myConnection.cs;
+            using var con = new MySqlConnection(cs);
 
+            con.Open();
+
+            string stm = "SELECT DISTINCT itemname FROM inventoryitem WHERE itemcheckedoutstatus <> 1 AND itemcomments like '1%'";
+            using var cmd = new MySqlCommand(stm,con);
+
+            using MySqlDataReader rdr = cmd.ExecuteReader();
+
+            List<ItemName> myInventoryItems = new List<ItemName>();
+            while(rdr.Read())
+            {
+                ItemName temp = new ItemName(){Name = rdr.GetString(0)};
+                myInventoryItems.Add(temp);
+            }
+            return myInventoryItems;
+        }
     }
+    
 }
