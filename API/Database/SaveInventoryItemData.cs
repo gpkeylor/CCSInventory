@@ -15,11 +15,12 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "INSERT INTO inventoryitem (itemname, itemcomments, itemcheckedoutstatus) VALUES(@itemname, @itemcomments, @itemcheckedoutstatus)";
+            string stm = "INSERT INTO inventoryitem (itemname, itemcomments, itemcheckedoutstatus, dateitemstatusupdated) VALUES (@itemname, @itemcomments, @itemcheckedoutstatus,  @dateitemstatusupdated)";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@itemname", item.ItemName);
             cmd.Parameters.AddWithValue("@itemcomments", item.ItemComments);
             cmd.Parameters.AddWithValue("@itemcheckedoutstatus", item.ItemCheckedOutStatus);
+            cmd.Parameters.AddWithValue("@dateitemstatusupdated", item.DateItemStatusUpdated);
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();

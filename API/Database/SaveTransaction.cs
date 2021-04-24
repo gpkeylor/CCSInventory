@@ -14,28 +14,31 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "INSERT INTO transaction (empid, itemid, adminid) VALUES(@empid, @itemid, @adminid)"; //don't need to insert checkedoutdate, duedate, or returndate 
+            string stm = "INSERT INTO transaction (empid, itemid, checkoutdate, duedate, returndate, checkoutadminid , returnadminid) VALUES(@empid, @itemid, @checkoutdate, @duedate, @returndate, @checkoutadminid , @returnadminid)"; //don't need to insert checkedoutdate, duedate, returndate, or returnadminid 
             using var cmd = new MySqlCommand(stm,con);                                                         //because they are initialized in the constructor when a transaction is created
             cmd.Parameters.AddWithValue("@empid", transaction.EmpID);
-            cmd.Parameters.AddWithValue("@transactioncomments", transaction.ItemID);
-            cmd.Parameters.AddWithValue("@transactioncheckedoutstatus", transaction.AdminID);
+            cmd.Parameters.AddWithValue("@itemid", transaction.ItemID);
+            cmd.Parameters.AddWithValue("@checkoutdate", transaction.CheckOutDate);
+            cmd.Parameters.AddWithValue("@checkoutdate", transaction.DueDate);
+            cmd.Parameters.AddWithValue("@checkoutdate", transaction.ReturnDate);
+            cmd.Parameters.AddWithValue("@checkoutadminid", transaction.CheckoutAdminID);
+            cmd.Parameters.AddWithValue("@checkoutadminid", transaction.ReturnAdminID);
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
         }
 
-        public void UpdateTransactionReturnDate(Transaction transaction) //ReturnTransaction - Asks user to enter current date 
-        {                                                                  //We could change this to set returndate = CurDate() as well 
+        public void UpdateTransactionReturnDate(Transaction transaction) 
+        {                                                                  
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             using var con = new MySqlConnection(cs);
 
             con.Open();
 
-            string stm = "UPDATE Transaction SET returndate = @returndate WHERE transactionID = @transactionID";
+            string stm = "UPDATE Transaction SET returndate = CurDate() WHERE transactionID = @transactionID";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@transactionID", transaction.TransactionID);
-            cmd.Parameters.AddWithValue("@returndate", transaction.ReturnDate);
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();

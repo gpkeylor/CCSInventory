@@ -26,7 +26,7 @@ namespace API.Database
             while(rdr.Read())
             {
                 Transaction transaction = new Transaction(){TransactionID=rdr.GetInt32(0), EmpID = rdr.GetInt32(1),ItemID = rdr.GetInt32(2), CheckOutDate=rdr.GetDateTime(3), 
-                                                            DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), AdminID = rdr.GetInt32(6)};
+                                                            DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), CheckoutAdminID = rdr.GetInt32(6), ReturnAdminID = rdr.GetInt32(7)};
                 myTransactions.Add(transaction);
             }
             return myTransactions;
@@ -48,7 +48,7 @@ namespace API.Database
             using MySqlDataReader rdr = cmd.ExecuteReader();
             rdr.Read();
             Transaction transaction = new Transaction(){TransactionID=rdr.GetInt32(0), EmpID = rdr.GetInt32(1),ItemID = rdr.GetInt32(2), CheckOutDate=rdr.GetDateTime(3), 
-                                                            DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), AdminID = rdr.GetInt32(6)};
+                                                            DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), CheckoutAdminID = rdr.GetInt32(6), ReturnAdminID = rdr.GetInt32(7)};
             return transaction;
         }
         //gets all transactions for a specified employee
@@ -70,7 +70,7 @@ namespace API.Database
             while(rdr.Read())
             {
                 Transaction transaction = new Transaction(){TransactionID=rdr.GetInt32(0), EmpID = rdr.GetInt32(1),ItemID = rdr.GetInt32(2), CheckOutDate=rdr.GetDateTime(3), 
-                                                            DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), AdminID = rdr.GetInt32(6)};
+                                                            DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), CheckoutAdminID = rdr.GetInt32(6), ReturnAdminID = rdr.GetInt32(7)};
                 empTransactions.Add(transaction);
             }
             return empTransactions;
@@ -94,7 +94,7 @@ namespace API.Database
             while(rdr.Read())
             {
                 Transaction transaction = new Transaction(){TransactionID=rdr.GetInt32(0), EmpID = rdr.GetInt32(1),ItemID = rdr.GetInt32(2), CheckOutDate=rdr.GetDateTime(3), 
-                                                            DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), AdminID = rdr.GetInt32(6)};
+                                                            DueDate = rdr.GetDateTime(4), ReturnDate = rdr.GetDateTime(5), CheckoutAdminID = rdr.GetInt32(6), ReturnAdminID = rdr.GetInt32(7)};
                 empTransactions.Add(transaction);
             }
             return empTransactions;

@@ -15,6 +15,9 @@ function getAdministrator()
               
                window.location ="\ transaction.html";
             }
+            else{
+                displayErrorMessage();
+            }
         });
        
     }).catch(function(error)
