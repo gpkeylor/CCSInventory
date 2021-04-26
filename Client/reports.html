@@ -37,20 +37,27 @@
 
             <div class="col-xs-4" id="headerwithborder">
                 <h1>Select Report</h1>
-                <form onchange="handleOnChange()">
-                    <label for="report">Choose a report:</label>
-                    <select name="report" id="report">
-                      <option value="None" id="None" style = color:black !important;>--Choose a Report--</option>
-                      <option value= "Overdue" id="Overdue" style = color:black !important;>Overdue Items</option>
-                      <option value="Lost" id="Lost" style = color:black !important;>Lost Items</option>
-                      <option value="Damaged" id="Damaged" style = color:black !important;>Damaged Items</option>
-                      <option value="Newest" id="Newest" style = color:black !important;>Newest First</option>
-                      <option value="Oldest" id="Oldest" style = color:black !important;>Oldest First</option>
-                    </select>
+            
+                    <label for="report">Choose a report:</label><br>
+                
+                     
+                      <button  id="Overdue"onclick="getReport('Overdue')" style = color:black !important;>Overdue Items</button><br>
+                      <br>
+                      <button  id="Lost" onclick="getReport('Lost')"style = color:black !important;>Lost Items</button><br>
+                      <br>
+                      <button  id="Damaged" onclick="getReport('Damaged')"style = color:black !important;>Damaged Items</button><br>
+                      <br>
+                      <button id="Newest" onclick="getReport('Newest')"style = color:black !important;>Newest First</button><br>
+                      <br>
+                      <button  id="Oldest" onclick="getReport('Oldest')"style = color:black !important;>Oldest First</button><br>
+              
                     <br><br>
+                   
                   <!-- <input type="submit" value="Submit" style = color:black !important;> -->
-                </form>
+      
             </div>
+
+           
             
             <div class = "col-xs-4" id="headerwithborder">
                 <h1>Generate</h1>

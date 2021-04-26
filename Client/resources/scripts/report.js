@@ -1,13 +1,33 @@
 
 function getReport(reportchoice){
-    const apiURL = "https://localhost:5001/api/report/oldest" //<--this works if you hard code the api endpoint (overdue, lost, etc) ;
+    console.log(reportchoice);
+    const apiURL = "https://localhost:5001/api/report/" + reportchoice; //<--this works if you hard code the api endpoint (overdue, lost, etc) ;
     fetch(apiURL).then(function(response){
         console.log(response);
         return response.json();
     }).then(function(json){
         console.log(json);
-        displayOldestReport(json); //<--again this works if you hard code it - still need to have a switch statement that determines the table generated 
-    }).catch(function(error){          //based off of the user's choice
+        if (reportchoice == "Overdue") 
+        {
+            displayOverdueReport(json);
+        } 
+        if (reportchoice == "Lost")
+        {
+            displayLostReport(json);
+        }
+        if (reportchoice == "Damaged") 
+        {
+            displayDamagedReport(json);
+        } 
+        if (reportchoice == "Newest")
+        {
+            displayNewestReport(json);
+        }
+        if (reportchoice == "Oldest")
+        {
+            displayOldestReport(json);
+        };  
+    }).catch(function(error){          
         console.log(error);
     });
 }
