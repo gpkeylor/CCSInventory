@@ -4,5 +4,6 @@ namespace API.Models
     {
         //created to make it easier to populate transaction page with list of available items 
         public string Name{get; set;}
+        public int ItemID{get; set;}
     }
 }

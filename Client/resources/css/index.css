@@ -171,8 +171,9 @@ li a
     border-color: #660000 !important;
 }
 .table-bordered{
-    width:75%;
+    width:40%;
     background-color: white;
+    margin-left: 20px;
 }
 
 .table-bordered th{

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Database;
 using API.Interfaces;
+using API.Interfaces.InventoryItemInterfaces;
 using API.Interfaces.TransactionInterfaces;
 using API.Models;
 using Microsoft.AspNetCore.Cors;

@@ -58,7 +58,7 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "SELECT DISTINCT itemname FROM inventoryitem WHERE itemcheckedoutstatus <> 1 AND itemcomments like '1%'";
+            string stm = "SELECT DISTINCT itemname, itemID FROM inventoryitem WHERE itemcheckedoutstatus <> 1 AND itemcomments like '1%'";
             using var cmd = new MySqlCommand(stm,con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
@@ -66,7 +66,7 @@ namespace API.Database
             List<ItemName> myInventoryItems = new List<ItemName>();
             while(rdr.Read())
             {
-                ItemName temp = new ItemName(){Name = rdr.GetString(0)};
+                ItemName temp = new ItemName(){Name = rdr.GetString(0), ItemID =rdr.GetInt32(1)};
                 myInventoryItems.Add(temp);
             }
             return myInventoryItems;
