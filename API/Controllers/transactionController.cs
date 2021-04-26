@@ -41,7 +41,6 @@ namespace api.Controllers
             return readObject.GetEmployeeTransactionsToReturn(empid);
         }
 
-    
         // GET: api/transaction/5
         [EnableCors("AnotherPolicy")]
         [HttpGet("{id}", Name = "Getit")]

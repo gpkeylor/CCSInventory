@@ -85,7 +85,10 @@ function displayInventoryItemNames(){
 function addCheckoutTransaction(){
     const transactionAPI = "https://localhost:5001/api/transaction";
     const enteredEmpID = document.getElementById("empID").value;
-    const itemID = 
+    const chosenItemID =      ;      //<--need to get this value from selected radio button
+    const adminCheckingOutItemID = ; //<--need to get this value from admin id entered at login 
+    //other values like checkoutdate(today's date), duedate(today's date + 14 days), returndate(1001-01-01 placeholder), 
+    //returnadminID(0 as a placeholder) are automatically instantiated in transaction constructor
 
     fetch(transactionAPI, {
         method: "POST",
@@ -94,7 +97,10 @@ function addCheckoutTransaction(){
             "Content-Type" : "application/json"
         },
         body: JSON.stringify({
-            empID: enteredEmpID
+            empID: enteredEmpID,
+            itemID: chosenItemID,
+            checkoutAdminID: adminCheckingOutItemID
+
         })
     })
     .then((response)=>{
@@ -129,10 +135,3 @@ function displayEmployeeTransactions(){
         console.log(error);
     })
 }
-
-
-//potential code to use for a modal to input comments upon returning an item
-/*+"<div id=\"editModal\" class=\"modal\"<div class=\"modal-content\">><span class = \"close\" onclick=\"closeModal()\">&times;</span>"
-+"<form onsubmit=\"return false\" method=\"post\"><label for=\"updatePost\">Post</label>"
-+"<input type=\"text\" name=\"updatePost\" id = \"updatePost\"><input type=\"submit\" value = \"Submit\" id=\"updateSubmit\">"
-+"</form></div></div>*/
