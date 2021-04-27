@@ -73,7 +73,7 @@ function displayInventoryItemNames(){
         let html ="";
         json.forEach(item =>{
             console.log(item.name);
-            html += "<input type=\"radio\" id=\"item\" name=\"equipment\" value=" +item.id+ " ><label for="+item.name+" >"+item.name+"</label><br>"
+            html += "<input type=\"radio\" id="+item.id+ "name=\"equipment\" value=" +item.id+ " ><label for="+item.name+" >"+item.name+"</label><br>"
         })
     document.getElementById("itemnames").innerHTML = html;
     }).catch(function(error)
