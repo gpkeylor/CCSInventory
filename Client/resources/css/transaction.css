@@ -1,0 +1,202 @@
+.navbar-brand {
+    width:150px;
+    font-size: 24px;
+    padding: 0px 15px;
+  }
+  .navbar-brand img {
+    max-height: 100%;
+    /* put value of image height as your need */
+    float: left;
+    margin-right: 7px;
+  }
+.navbar 
+{
+    background-color: #660000;
+    position: relative;
+    top: 0px;
+    width: 100%; 
+    
+}
+.mytext
+{
+    text-align: center;
+    display: inline-block;
+    width: 100px;
+    
+}
+.employeeinput
+{
+    text-align: center;
+    top: 20px;
+    margin-top: 20px;
+    
+}
+.container > ul li
+{
+    
+    list-style-type: none;
+    text-align: center;
+    display:inline-block;
+    margin-right: 20px; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 20px; 
+    padding-left:30px;
+    padding-right:50px;
+    
+}
+p{
+    margin: 0px;
+}
+.banner
+{
+    width: 98%;
+    text-align: center;
+    margin-right: 1em;
+    display:inline-block;
+}
+
+li a 
+{
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    position: relative;
+    left: -10px;
+}
+
+ #jumbotrontext
+{
+    font-size: 25px;
+    border-radius: 25px;
+    border: 10px inset crimson;
+    background-color:transparent;
+    top: 8px;
+    color: #0f0e0e;
+    height: 35px;    
+    width: 50px;
+    margin-left: 250px;
+    /* text-align: center; */
+    width: 60%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+#jumbotrontext2
+{
+    font-size: 25px;
+    background-color:transparent;
+    top: 8px;
+    color: #0f0e0e;
+    height: 35px;    
+    width: 50px;
+    margin-left: 250px;
+    margin-top: 20px;
+    margin-bottom: -70px;
+    /* text-align: center; */
+    width: 60%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.jumbotron h1{
+    font-size: 30px;
+    margin-top: -35px;  
+    left:10px;
+    color:rgb(19, 15, 15)
+}
+
+#row1
+{
+    margin-top: -20;
+}
+
+.borrowerinfo
+{
+    margin-top: 20px;
+    display:inline; 
+    text-align: left;
+    position: relative;
+    left: -600px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 10pt;
+}
+.Equipment
+{
+    margin-top: 20px;
+    color: white;
+    display:inline; 
+    text-align: center;
+    position: relative;
+    left: -100px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 10pt;
+}
+#inline{width:100%;height:auto;background-color:transparent;display:flex;} 
+.one,.two,.three{width:50%;height:100px;background-color:transparent;margin:10px;font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";} 
+
+.comments
+{
+    text-align: center;
+
+    display: inline-block;
+    width: 300px;
+    height: 100px;
+}
+.list 
+{
+    position: relative;
+    left: 250px;
+    text-align: left;
+}
+
+.submitbutton
+{
+    position: relative;
+    top: 200px;
+    
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+#headerwithborder h1 {
+    color: rgb(14, 12, 12);
+    width: 300px;
+    height: 100px;
+    padding: 20px;
+    border: 10px inset crimson;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    text-align: center;
+  }
+  
+  .col-xs-6{
+    
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+
+  .row{
+    margin-top: 50px;
+    color: rgb(14, 13, 13);
+  }
+
+  .empsubmitbutton
+  {
+      margin-left: 870px;
+
+  }
+
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #660000 !important;
+    border-color: #660000 !important;
+}
+.table-bordered{
+    width:40%;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.table-bordered th{
+    background-color:  #660000;
+    color: white;
+    text-align: left;
+    white-space: nowrap;
+}
+

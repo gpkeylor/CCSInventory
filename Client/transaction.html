@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Inventory Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel ="stylesheet" href="./resources/css/index.css">
+    <link rel ="stylesheet" href="./resources/css/transaction.css">
 </head>
     <body onload = "displayInventoryItemNames()" style="background-color: rgb(209, 203, 203);">
         <script src="./resources/scripts/transaction.js"></script>
@@ -19,16 +19,16 @@
                     <img src="resources/images/report2.png" id="report" />
                     <li class "a"><a href="./reports.html">Reports</a></li>
                     <img src="resources/images/admin.png" id="admin" />
-                    <li class "a"><a href="./admin.html">Admins</a></li>
-                    <img src="resources/images/logout.png" id="logout" />
+                    <!--<li class "a"><a href="./admin.html">Admins</a></li>
+                    <img src="resources/images/logout.png" id="logout" />-->
                     <li class "a"><a href="./home.html">Logout</a></li>
                 </ul>
             </div>  
         </nav>
         <!-- Banner Section-->
-        <div class="jumbotron text-center">
-            <h1 class="display-4" id="jumbotrontext">Check out an item</h1>
-            <p class="lead">Please enter employee's ID to start a new transaction </p>
+        <div class="jumbotron text-center" id="jumbotrontext">
+            <h1 class="display-4" id="jumbotrondetail">Please Enter Employee ID</h1>
+            <p class="lead">Please enter an employee's ID to start a transaction.</p>
         </div>
     
     
@@ -41,57 +41,59 @@
             </div>
         </div>
     
-         
+        <div class="jumbotron text-center" id="jumbotrontext2">
+            <h1 class="display-4" id="jumbotrondetail">Checkout</h1>
+        </div>
+        
         <!--Information Columns-->
-        <div class = "container">
-            <div class="row">
-                <div class="col-xs-4 " id="headerwithborder">
-                    <div class="col-md-12">
+        <div class = "container" id ="container1">
+            <div class="row" id="row1">
+                <div class="col-xs-6  " id="headerwithborder">
+                    <div class="col-md-6 col-centered">
                     <h1> Borrower Info</h1>
                     <p> Name :</p>
-                    <label id="lblName"></label><br>
-                    <input id="lfname" name="fname" type="text" style = color:black !important; /><br>
                     <p> Employee Email :</p>
-                    <label id="lblEmployeeID"></label> <br>
-                    <input id="lEmEmail" name="lEmEmail" type="text" style = color:black !important; /><br>
+                    <form id = "empform">
+                        <input type="text" name="empid"/>
+                        <input type="text" name="empname"/>
+                        <input type="text" name="empemail"/>
+                    </form>
                     </div>
                     
                 </div> 
-                <div class="col-xs-4" id="headerwithborder">
-                    <div  class="col-md-12" >
+                <div class="col-xs-6" id="headerwithborder">
+                    <div  class="col-md-6 col-centered" >
                     <h1> Equipment</h1>
                     <p>Please select what you would like to checkout:</p>
                     <div id="itemnames">
     
                     </div>
-                   
+                    </div>
                 </div>
-               
-   
-              
             </div>
             
-        </div>   <br>
-        <br>
-        <br>
-        <div class="jumbotron text-center">
-            <h1 class="display-4" id="jumbotrontext">Return an item</h1>
-            <p class="lead">Please enter employee's ID to start a new transaction </p>
+        </div> 
+        <div class="text-center text-md-left">
+            <a class="btn btn-primary" onclick="">Submit</a>
+            <div class="text-center text-md-left" id = "transactionStatus">
+    
+            </div>
         </div>
-        
+        <div class="jumbotron text-center" id="jumbotrontext2">
+            <h1 class="display-4" id="jumbotrondetail">Return</h1>
+        </div>
+         
 
-        <div class = "container">
+        <div class = "container"> 
             <div class="row">
-                <div class="col-xs-4 " id="headerwithborder">
-                    <div class="col-md-12">
+                <div class="col-xs-6 " id="headerwithborder">
+                    <div class="col-md-6 col-centered">
                         <h1> Return Item</h1>
                         
                     </div>     
                 </div>
-            
-              
-                <div class="col-xs-4" id="headerwithborder">
-                    <div class="col-md-12">
+                <div class="col-xs-6 " id="headerwithborder">
+                    <div class="col-md-6 col-centered">
                         <h1>Condition</h1>
                         <p>Please select the condition of the item returned:</p>
                             <input type="radio" id="1" name="condition" value="1">
@@ -106,18 +108,13 @@
                         </div>
                     </div> 
                 </div> 
-              
             </div>
-            
-        </div>   
-      
-
-
+        </div>
         <div id="empTransactions">
     
         </div>
         <div class="submitbutton">
-            <button type="submit"> Submit</button>
+        <button type="submit"> Submit</button>
     </div> 
              
        
