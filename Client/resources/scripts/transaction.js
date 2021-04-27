@@ -84,9 +84,9 @@ function displayInventoryItemNames(){
 
 function addCheckoutTransaction(){
     const transactionAPI = "https://localhost:5001/api/transaction";
-    const enteredEmpID = document.getElementById("empID").value;
-    const chosenItemID =      ;      //<--need to get this value from selected radio button
-    const adminCheckingOutItemID = ; //<--need to get this value from admin id entered at login 
+    const enteredEmpID = document.getElementById("empID").value; //<--value from employeeID entered to check employee eligibility
+    const chosenItemID =  "";        //<--need to get this value from selected radio button
+    const adminCheckingOutItemID = ";"   //<--need to get this value from admin id entered at login or could have admin re enter their id
     //other values like checkoutdate(today's date), duedate(today's date + 14 days), returndate(1001-01-01 placeholder), 
     //returnadminID(0 as a placeholder) are automatically instantiated in transaction constructor
 
@@ -100,7 +100,6 @@ function addCheckoutTransaction(){
             empID: enteredEmpID,
             itemID: chosenItemID,
             checkoutAdminID: adminCheckingOutItemID
-
         })
     })
     .then((response)=>{

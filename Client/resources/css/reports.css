@@ -76,9 +76,10 @@ li a
 }
 
 .table-bordered{
-  width:80%;
+  width:20%;
   background-color: white;
   margin-top: 70px;
+  margin-right: 50px;
 }
 
 .table-bordered th{
