@@ -52,7 +52,7 @@ li a
 }
 
 .row{
-    margin-top: 50px;
+    margin-left: -50px;
     color: rgb(12, 11, 11);
   }
 
@@ -91,4 +91,26 @@ li a
 .table-bordered td{
   text-align: left;
   white-space: nowrap;
+}
+
+.jumbotron
+{
+    font-size: 25px;
+    border-radius: 25px;
+    border: 10px inset crimson;
+    background-color:transparent;
+    top: 8px;
+    color: #0f0e0e;
+    height: 35px;    
+    width: 50px;
+    margin-left: 250px;
+    /* text-align: center; */
+    width: 60%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.jumbotron h1{
+    font-size: 30px;
+    margin-top: -35px;  
+    left:10px;
+    color:rgb(19, 15, 15)
 }
