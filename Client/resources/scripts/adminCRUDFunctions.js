@@ -9,7 +9,7 @@ function addInventoryItem()
     const postItemApiUrl = "https://localhost:5001/api/inventory";
     const ItemName = document.getElementById("inventoryitem").value;
     let item = {
-        ItemName : ItemName
+        itemName : ItemName
     };
     console.log(item);
     fetch(postItemApiUrl,
@@ -23,9 +23,9 @@ function addInventoryItem()
     }).then((response)=>{
         console.log(response);
     });
-    
-    getDeleteInventoryItems();
     getUpdateInventoryItems();
+    getDeleteInventoryItems();
+    
 }
 //gets inventory items
 function getDeleteInventoryItems()
@@ -140,8 +140,6 @@ function updateItem(userChoice, itemIdChosenToUpdate)
         const updatedItem ={
                 itemID: itemIdChosenToUpdate,
                 itemName: name
-                //itemComments: comments,
-                //itemCheckedOutStatus: itemcheckedoutstatus
             }
         fetch(itemNameAPI, {
                 method: "PUT",
@@ -180,7 +178,7 @@ function updateItem(userChoice, itemIdChosenToUpdate)
     if(userChoice == "checkedout")
     {
         const itemNameAPI = "https://localhost:5001/api/inventory/itemcheckedoutstatus/" + itemIdChosenToUpdate;
-        itemcheckedoutstatus = document.getElementById("updateValue").value;
+        itemcheckedoutstatus = parseInt(document.getElementById("updateValue").value);
         console.log(itemcheckedoutstatus);
         const updatedItem = {
                 itemID: itemIdChosenToUpdate,

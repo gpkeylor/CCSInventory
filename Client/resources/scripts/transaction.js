@@ -72,8 +72,7 @@ function displayInventoryItemNames(){
     }).then(function(json){
         let html ="";
         json.forEach(item =>{
-            console.log(item.name);
-            html += "<input type=\"radio\" id="+item.id+ "name=\"equipment\" value=" +item.id+ " ><label for="+item.name+" >"+item.name+"</label><br>"
+            html += "<input type=\"radio\" id="+item.itemID+ "name='equipment' onClick = \"checkItemPicked("+item.itemID+")\" value=" +item.itemID+ " ><label for="+item.name+" >"+item.name+"</label><br>"
         })
     document.getElementById("itemnames").innerHTML = html;
     }).catch(function(error)
@@ -82,27 +81,35 @@ function displayInventoryItemNames(){
     });
 }
 
-function addCheckoutTransaction(){
-    const transactionAPI = "https://localhost:5001/api/transaction";
-    const enteredEmpID = document.getElementById("empID").value; //<--value from employeeID entered to check employee eligibility
-    const chosenItemID = document.getElementById("itemnames").SelectedValue;//<--need to get this value from selected radio button
-    var getAdmin = window.location.search;
-    var parameters = new URLSearchParams(getAdmin);
-    const adminCheckingOutItemID = parameters.get("adminID");
-    console.log(adminCheckingOutItemID);
+var userItemChoiceID
+function checkItemPicked(id){
+    
+    console.log(id);
+    userItemChoiceID = id;
+    console.log(userItemChoiceID);
+}
+function handleOnClick()
+{
+    addCheckoutTransaction(userItemChoiceID);
+}
 
-     console.log("Chosen item id" + chosenItemID);
+function addCheckoutTransaction(userItemChoiceID){
+    const transactionAPI = "https://localhost:5001/api/transaction";
+    const enteredEmpID = parseInt(document.getElementById("empID").value); 
+    const chosenItemID =  userItemChoiceID;
+    const checkoutAdminID = parseInt(document.getElementById("checkoutadminid").value);
+    let transaction = {
+        empID: enteredEmpID,
+        itemID: chosenItemID,
+        checkoutAdminID: checkoutAdminID
+    }
     fetch(transactionAPI, {
         method: "POST",
         headers: {
             "Accept" : "application/json",
             "Content-Type" : "application/json"
         },
-        body: JSON.stringify({
-            empID: enteredEmpID,
-            itemID: chosenItemID,
-            checkoutAdminID: adminCheckingOutItemID
-        })
+        body:JSON.stringify(transaction)
     })
     .then((response)=>{
         console.log(response);

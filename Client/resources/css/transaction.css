@@ -199,4 +199,7 @@ li a
     text-align: left;
     white-space: nowrap;
 }
+.table-bordered td{
+    white-space: nowrap;
+}
 

@@ -45,7 +45,7 @@ namespace API.Database
             con.Close();
         }
         // edits the comments on a given inventory item
-        public void UpdateInventoryItem(InventoryItem item)
+        public void UpdateInventoryItemComments(InventoryItem item)
         {
             
             ConnectionString myConnection = new ConnectionString();

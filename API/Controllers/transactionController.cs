@@ -41,9 +41,9 @@ namespace api.Controllers
             return readObject.GetEmployeeTransactionsToReturn(empid);
         }
 
-        // GET: api/transaction/5
+        // GET: api/transaction/5 Name = "Getit
         [EnableCors("AnotherPolicy")]
-        [HttpGet("{id}", Name = "Getit")]
+        [HttpGet("{id}")]
         public Transaction Get(int id)
         {
             IGetTransaction readObject = new ReadTransactions();
@@ -52,11 +52,11 @@ namespace api.Controllers
 
         // Transaction: api/transaction
         [EnableCors("AnotherPolicy")]
-        [HttpPost("{id}")]
+        [HttpPost]
         public void Transaction([FromBody] Transaction transaction)
         {
-            IUpdateTransactionReturnDate updateObject = new SaveTransaction();
-            updateObject.UpdateTransactionReturnDate(transaction);
+            IAddTransaction addObject = new SaveTransaction();
+            addObject.AddTransaction(transaction);
         }
         // PUT: api/transaction/5
         [EnableCors("AnotherPolicy")]

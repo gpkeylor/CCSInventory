@@ -26,14 +26,10 @@
             </div>  
         </nav>
         <!-- Banner Section-->
-        <div class="container h-100 d-flex">
-            <div class="jumbotron text-center col-md-6 col-md-offset-2 " id="jumbotrontext">
-                <h1 class="display-4" id="jumbotrondetail">Please Enter Employee ID</h1>
-                <p class="lead">Please enter an employee's ID to start a transaction.</p>
-            </div>
-
+        <div class="jumbotron text-center" id="jumbotrontext">
+            <h1 class="display-4" id="jumbotrondetail">Please Enter Employee ID</h1>
+            <p class="lead">Please enter an employee's ID to start a transaction.</p>
         </div>
-        
     
     
         <!--Submit Button-->
@@ -46,7 +42,7 @@
         </div>
     
         <div class="jumbotron text-center" id="jumbotrontext2">
-            <h1 class="ol-md-8 col-md-offset-2" id="jumbotrondetail">Checkout</h1>
+            <h1 class="display-4" id="jumbotrondetail">Checkout</h1>
         </div>
         
         <!--Information Columns-->
@@ -54,30 +50,19 @@
             <div class="row" id="row1">
                 <div class="col-xs-6  " id="headerwithborder">
                     <div class="col-md-6 col-centered">
-                    <h1> Borrower Info</h1>
+                    <h1>Checkout Info</h1>
                     <form id = "empform">
-                    <p> Employee Name :</p>
-                    <input type="text" placeholder="Name" >
-                    <p> Employee Email :</p>
-                    <input type="text" placeholder="Email" >
+                        <input id= "empemail" placeholder="Employee Email" type="text" name="empemail"/>
+                        <input id= "checkoutadminid" placeholder="Admin ID" type="text" name="checkoutadminid"/>
                     </form>
                     </div>
+                    
                 </div> 
                 <div class="col-xs-6" id="headerwithborder">
                     <div  class="col-md-6 col-centered" >
                     <h1> Equipment</h1>
                     <p>Please select what you would like to checkout:</p>
                     <div id="itemnames">
-                    <button type="radio" id="laptop" name="equipment" value="laptop">
-           
-                    <input type="radio" id="ethernetcable" name="equipment" value="ethernetcable">
-                    <label for="ethernetcable">Ethernet Cable</label><br>
-                    <input type="radio" id="digitalcamera" name="equipment" value="digitalcamera">
-                    <label for="other">Digital Camera</label><br>
-                    <input type="radio" id="monitor" name="equipment" value="monitor">
-                    <label for="other">Monitor</label><br>
-                    <input type="radio" id="headphones" name="equipment" value="headphones">
-                    <label for="other">Headphones</label><br> 
     
                     </div>
                     </div>
@@ -86,13 +71,13 @@
             
         </div> 
         <div class="text-center text-md-left">
-            <a class="btn btn-primary" onclick="">Submit</a>
-            <div class="text-center text-md-left"  id = "transactionStatus">
+            <a class="btn btn-primary" onclick="handleOnClick()">Submit</a>
+            <div class="text-center text-md-left" id = "transactionStatus">
     
             </div>
         </div>
         <div class="jumbotron text-center" id="jumbotrontext2">
-            <h1 class="ol-md-8 col-md-offset-2" id="jumbotrondetail">Return</h1>
+            <h1 class="display-4" id="jumbotrondetail">Return</h1>
         </div>
          
 
@@ -102,47 +87,33 @@
                     <div class="col-md-6 col-centered">
                         <h1> Return Item</h1>
                         
-                
-                    </div> 
-                    <div id="empTransactions">
-    
-                    </div>    
+                    </div>     
                 </div>
                 <div class="col-xs-6 " id="headerwithborder">
-                    <div class="col-md-6 col-centered" div id="conditions">
+                    <div class="col-md-6 col-centered">
                         <h1>Condition</h1>
                         <p>Please select the condition of the item returned:</p>
-                            <input type="radio" name="condition" value="1-Good Condition">
-                            <label for="1">Good condition</label><br>
-                            <input type="radio" name="condition" value="2-Damaged">
-                            <label for="2">Damaged, needs to be replaced.</label><br>
-                            <input type="radio" name="condition" value="3-Item Lost">
-                            <label for="3">Item is lost </label><br>
+                            <input type="radio" id="1" name="condition" value="1">
+                            <label for="1">1. Perfect condition, available to be rented.</label><br>
+                            <input type="radio" id="2" name="condition" value="2">
+                            <label for="2">2. Okay condition, available to be rented.</label><br>
+                            <input type="radio" id="3" name="condition" value="3">
+                            <label for="3">3. Damaged, needs to be replaced.</label><br>
+                            <input type="radio" id="4" name="condition" value="4">
+                            <label for="4">4. Missing or lost</label><br>
                             </div> 
-                            
                         </div>
                     </div> 
                 </div> 
             </div>
         </div>
-        <div class="text-center text-md-left">
-                <label for="fname"> Transaction ID:</label>
-                <input type ="number" name="updateTransID" id="updateTransactionID">
-                <label for="lname">Item ID:</label>
-                <input type ="number" name="updateId" id="updateItemID">
-                <label for="lname">Return Admin ID:</label>
-                <input type ="number" name="updateAdId" id="updateAdminID">
-                <input type="submit" value="Submit" onclick="updateTransactionTable(); updateInventoryItems()">
-
-            
+        <div id="empTransactions">
     
-    
-            </div>
         </div>
-    
-        
+        <div class="submitbutton">
+        <button type="submit"> Submit</button>
     </div> 
-              
+             
        
 </body>
 </html>

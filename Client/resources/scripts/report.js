@@ -45,7 +45,7 @@ function displayOverdueReport(json){
     html+= "<tr><th><b>EmpID</th><th><b>EmpEmail</th><th><b>Days Overdue</th></tr>";
     json.forEach((report) => {
         html+= "<tr><td>" + report.empID + 
-        "</td><td>" + report.empEmail + "</td><td>" +report.daysOverdue + "</td></tr>"
+        "</td><td>" + report.empEmail + "</td><td style = color:red !important;>" +report.daysOverdue + "</td></tr>"
     });
     html+= "</table>";
     document.getElementById("reportTable").innerHTML = html;

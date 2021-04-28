@@ -15,19 +15,18 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "INSERT INTO transaction (empid, itemid, checkoutdate, duedate, returndate, checkoutadminid , returnadminid) VALUES(@empid, @itemid, @checkoutdate, @duedate, @returndate, @checkoutadminid , @returnadminid)"; //don't need to insert checkedoutdate, duedate, returndate, or returnadminid 
-            using var cmd = new MySqlCommand(stm,con);                                                         //because they are initialized in the constructor when a transaction is created
+            string stm = "INSERT INTO transaction (empid, itemid, checkoutdate, duedate, returndate, checkoutadminID , returnadminID) VALUES(@empid, @itemid, @checkoutdate, @duedate, @returndate, @checkoutadminID , @returnadminID)"; 
+            using var cmd = new MySqlCommand(stm,con);                                                       
             cmd.Parameters.AddWithValue("@empid", transaction.EmpID);
             cmd.Parameters.AddWithValue("@itemid", transaction.ItemID);
             cmd.Parameters.AddWithValue("@checkoutdate", transaction.CheckOutDate);
-            cmd.Parameters.AddWithValue("@checkoutdate", transaction.DueDate);
-            cmd.Parameters.AddWithValue("@checkoutdate", transaction.ReturnDate);
-            cmd.Parameters.AddWithValue("@checkoutadminid", transaction.CheckoutAdminID);
-            cmd.Parameters.AddWithValue("@checkoutadminid", transaction.ReturnAdminID);
+            cmd.Parameters.AddWithValue("@duedate", transaction.DueDate);
+            cmd.Parameters.AddWithValue("@returndate", transaction.ReturnDate);
+            cmd.Parameters.AddWithValue("@checkoutadminID", transaction.CheckoutAdminID);
+            cmd.Parameters.AddWithValue("@returnadminID", transaction.ReturnAdminID);
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
-            con.Close();
         }
 
         public void UpdateTransactionReturnDate(Transaction transaction) 
