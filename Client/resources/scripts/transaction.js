@@ -226,6 +226,7 @@ function completedTransactionCheckOut()
     let html = "<h4>Item succesfully checked out! Item will be due back: <b><u>"+ date+"</h4>";
     document.getElementById("successfultransaction").innerHTML = html;
     checkEmployeeEligibility();
+    displayInventoryItemNames();
     
 }
 
@@ -271,7 +272,6 @@ function handleOnClickReturn(transactionID, itemID, condition){
     updateTransactionTable(transactionID);
     updateInventoryItemComments(itemID, condition);
     subtractNoOfItemsCheckedOut();
-    successfulTransactionReturn();
 }
 
 function displayEmployeeTransactions(){
