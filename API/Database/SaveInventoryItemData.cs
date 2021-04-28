@@ -45,16 +45,17 @@ namespace API.Database
         // edits the comments on a given inventory item
         public void UpdateInventoryItemComments(InventoryItem item)
         {
+            
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
             using var con = new MySqlConnection(cs);
 
             con.Open();
 
-            string stm = "UPDATE inventoryitem SET itemcomments = @itemcomments AND datecommentsupdated = CurDate() WHERE itemID = @itemID";
+            string stm = "UPDATE inventoryitem SET itemcomments = @itemcomments, datecommentsupdated = CurDate() WHERE itemID = @itemID";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@itemID", item.ItemID);
-            cmd.Parameters.AddWithValue("@itemname", item.ItemComments);
+            cmd.Parameters.AddWithValue("@itemcomments", item.ItemComments);
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
@@ -71,7 +72,7 @@ namespace API.Database
             string stm = "UPDATE inventoryitem SET itemcheckedoutstatus = @itemcheckedoutstatus WHERE itemID = @itemID";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@itemID", item.ItemID);
-            cmd.Parameters.AddWithValue("@itemname", item.ItemCheckedOutStatus);
+            cmd.Parameters.AddWithValue("@itemcheckedoutstatus", item.ItemCheckedOutStatus);
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();

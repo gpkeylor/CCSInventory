@@ -64,14 +64,14 @@ namespace api.Controllers
         public void PutItemComments(int id, [FromBody] InventoryItem item)
         {
             IUpdateInventoryItem updateObject = new SaveInventoryItemData();
-            updateObject.UpdateInventoryItemName(item);
+            updateObject.UpdateInventoryItemComments(item);
         }
         [EnableCors("AnotherPolicy")]
         [HttpPut("itemcheckedoutstatus/{id}")]//I think this is how you decorate the http in order to update just checkedoutstatus
         public void PutItemCheckedOutStatus(int id, [FromBody] InventoryItem item)
         {
             IUpdateInventoryItem updateObject = new SaveInventoryItemData();
-            updateObject.UpdateInventoryItemName(item);
+            updateObject.UpdateInventoryItemCheckedOutStatus(item);
         }
 
         // DELETE: api/ApiWithActions/5

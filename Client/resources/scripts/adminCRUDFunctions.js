@@ -139,7 +139,9 @@ function updateItem(userChoice, itemIdChosenToUpdate)
         name = document.getElementById("updateValue").value ;
         const updatedItem ={
                 itemID: itemIdChosenToUpdate,
-                itemName: name,
+                itemName: name
+                //itemComments: comments,
+                //itemCheckedOutStatus: itemcheckedoutstatus
             }
         fetch(itemNameAPI, {
                 method: "PUT",
@@ -157,6 +159,7 @@ function updateItem(userChoice, itemIdChosenToUpdate)
     {
         const itemNameAPI = "https://localhost:5001/api/inventory/itemcomments/"+ itemIdChosenToUpdate;
         comments = document.getElementById("updateValue").value ;
+        console.log(comments)
         const updatedItem ={
                 itemID: itemIdChosenToUpdate,
                 itemComments: comments
@@ -173,13 +176,14 @@ function updateItem(userChoice, itemIdChosenToUpdate)
             getUpdateInventoryItems();
         })
     }
-    if(userChoice == "checkedoutstatus")
+    if(userChoice == "checkedout")
     {
-        const itemNameAPI = "https://localhost:5001/api/inventory/itemcheckedoutstatus/"+itemIdChosenToUpdate;
-        checkedoutstatus = document.getElementById("updateValue").value ;
-        const updatedItem ={
+        const itemNameAPI = "https://localhost:5001/api/inventory/itemcheckedoutstatus/" + itemIdChosenToUpdate;
+        itemcheckedoutstatus = document.getElementById("updateValue").value;
+        console.log(itemcheckedoutstatus);
+        const updatedItem = {
                 itemID: itemIdChosenToUpdate,
-                itemCheckedOutStatus: checkedoutstatus
+                itemCheckedOutStatus: itemcheckedoutstatus
             }
         fetch(itemNameAPI, {
                 method: "PUT",
