@@ -106,20 +106,25 @@ function addCheckoutTransaction(){
         console.log(response);
     })
 }
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+       next();
+ });
 function updateTransaction(){
     
-    var transactionID= document.getElementById("editTransaction").value;
-    var adminID = document.getElementById("editAdministrator").value;
-    const empTransactions ="https://localhost:5001/api/transaction" + transactionID;
+    var transactionID = document.getElementById("updateTransactionID").value;
+    var adminID = document.getElementById("updateAdminID").value;
+    const empTransactions ="https://localhost:5001/api/transaction/" + transactionID;
     const item = {
-        ReturnAdminID : adminID,
         TransactionID : transactionID,
-        
+        ReturnAdminID : adminID,
     }
     fetch(empTransactions, {
         method: "PUT",
         headers: {
+            
             "Accept": 'application/json',
             "Content-Type": 'application/json',
         },

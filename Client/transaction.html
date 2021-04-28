@@ -118,13 +118,12 @@
             </div>
         </div>
         <div class="text-center text-md-left">
-            <form onsubmit="updateTransaction()" method ="put">
                 <label for="fname">Return Transaction ID:</label>
-                <input id="editTransaction" type="text" placeholder="Transaction ID" class="mytext" style = color:black !important;>
+                <input type ="text" name="updateTransID" id="updateTransactionID">
                 <label for="lname">Return Admin ID:</label>
-                <input id="editAdministrator" type="text" placeholder="Admin ID" class="mytext" style = color:black !important;>
-                <input type="submit" value="Submit" onclick="updateTransaction()" >
-              </form>
+                <input type ="text" name="updateAdId" id="updateAdminID">
+                <input type="submit" value="Submit" onclick="updateTransaction()">
+
             
     
     
