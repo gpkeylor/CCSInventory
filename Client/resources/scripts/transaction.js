@@ -119,7 +119,7 @@ function addCheckoutTransaction(userItemChoiceID){
 }
 //returns an item
 function updateTransactionTable(transactionID){
-    var adminID = parseInt(document.getElementById("adminid").value);
+    var adminID = parseInt(document.getElementById("adminidreturn").value);
     const TransactionURL = "https://localhost:5001/api/transaction/" + transactionID;
     
     const updatedTransaction = {
