@@ -27,6 +27,7 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         public void UpdateTransactionReturnDate(Transaction transaction) 
@@ -45,6 +46,7 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
+            con.Close();
         }
         public void DeleteTransaction(Transaction transaction) //Deletes transaction from database
         {

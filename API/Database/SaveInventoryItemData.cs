@@ -24,6 +24,7 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
+            con.Close();
         }
         // edits or updates a current inventory item in our database 
         public void UpdateInventoryItemName(InventoryItem item)
@@ -41,6 +42,7 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
+            con.Close();
         }
         // edits the comments on a given inventory item
         public void UpdateInventoryItem(InventoryItem item)
@@ -54,7 +56,7 @@ namespace API.Database
             string stm = "UPDATE inventoryitem SET itemcomments = @itemcomments, datecommentsupdated = CurDate(), itemcheckedoutstatus = @itemstatus WHERE itemID = @itemID";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@itemID", item.ItemID);
-            cmd.Parameters.AddWithValue("@itemname", item.ItemComments);
+            cmd.Parameters.AddWithValue("@itemcomments", item.ItemComments);
             cmd.Parameters.AddWithValue("@itemstatus", item.ItemCheckedOutStatus);
             cmd.Prepare();
             
@@ -92,6 +94,7 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }
