@@ -7289,26 +7289,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kalia\\.nuget\\packages\\": {}
+    "C:\\Users\\Garrett\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kalia\\source\\repos\\CCSInventory\\api\\api.csproj",
+      "projectUniqueName": "C:\\Users\\Garrett\\Documents\\School\\CCSInventory\\API\\api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\Users\\kalia\\source\\repos\\CCSInventory\\api\\api.csproj",
-      "packagesPath": "C:\\Users\\kalia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kalia\\source\\repos\\CCSInventory\\api\\obj\\",
+      "projectPath": "C:\\Users\\Garrett\\Documents\\School\\CCSInventory\\API\\api.csproj",
+      "packagesPath": "C:\\Users\\Garrett\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Garrett\\Documents\\School\\CCSInventory\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kalia\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Garrett\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7354,6 +7352,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.13, 3.1.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -7362,7 +7366,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\kalia\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\kalia\\.nuget\\packages"
+      "C:\\Users\\Garrett\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Garrett\\.nuget\\packages"
     ]
   }
 }
