@@ -107,6 +107,41 @@ function addCheckoutTransaction(){
     })
 }
 
+function updateTransaction(){
+    const empTransactions ="https://localhost:5001/api/transaction";
+    var transactionID= document.getElementById("edittransaction").value
+    var adminID = document.getElementById("editadministrator").value
+    
+    
+    fetch(empTransactions, {
+        method: "PUT",
+        headers: {
+            "Accept": 'application/json',
+            "Content-Type": 'application/json',
+        },
+        body: JSON.stringify({
+            TransactionID: transactionID,
+            ReturnAdminID: adminID,
+            
+            
+        })
+    })
+    .then((response)=>{
+        console.log(response)
+        checkEmployeeEligibility();
+
+    })
+}
+function updateInventoryItems()
+{
+    var conditions = document.getElementsByName('condition');
+    var condition_value;
+    for(var i = 0; i < conditions.length; i++){
+    if(conditions[i].checked){
+        condition_value = conditions[i].value;
+    }
+}
+}
 
 function displayEmployeeTransactions(){
     const empTransactions = "https://localhost:5001/api/transaction/emptransactionsreturn";
@@ -125,7 +160,7 @@ function displayEmployeeTransactions(){
                 html+= "<tr><td>" + transaction.transactionID + 
                 "</td><td>" + transaction.empID + "</td>" 
                 +"<td>" + transaction.itemID + "</td>"  + "<td>" + transaction.checkOutDate + "</td>"
-                + "<td>" + transaction.dueDate + "</td>" + "<td>" + transaction.checkoutAdminID + "</td>" + "<td><button>Return</button></td>" 
+                + "<td>" + transaction.dueDate + "</td>" + "<td>" + transaction.checkoutAdminID + "</td>" 
             } 
         });
         html+= "</table>";

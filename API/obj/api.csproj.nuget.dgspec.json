@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\api.csproj": {}
+    "C:\\Users\\Garrett\\Documents\\School\\CCSInventory\\API\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\api.csproj": {
+    "C:\\Users\\Garrett\\Documents\\School\\CCSInventory\\API\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\api.csproj",
+        "projectUniqueName": "C:\\Users\\Garrett\\Documents\\School\\CCSInventory\\API\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\brade\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brade\\Documents\\MIS321\\repos\\CCSInventory\\api\\obj\\",
+        "projectPath": "C:\\Users\\Garrett\\Documents\\School\\CCSInventory\\API\\api.csproj",
+        "packagesPath": "C:\\Users\\Garrett\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Garrett\\Documents\\School\\CCSInventory\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\brade\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Garrett\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,6 +65,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.13, 3.1.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -75,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 
 namespace API.Database
 {
+    
     public class SaveTransaction : IAddTransaction, IDeleteTransaction, IUpdateTransactionReturnDate
     {
         public void AddTransaction(Transaction transaction) //Checkout Function 
@@ -36,9 +37,10 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "UPDATE Transaction SET returndate = CurDate() WHERE transactionID = @transactionID";
+            string stm = "UPDATE Transaction SET returnadminID=@returnadminID, returndate = CurDate() WHERE transactionID = @transactionID";
             using var cmd = new MySqlCommand(stm,con);
             cmd.Parameters.AddWithValue("@transactionID", transaction.TransactionID);
+            cmd.Parameters.AddWithValue("@returnadminID", transaction.ReturnAdminID);
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
