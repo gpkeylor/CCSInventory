@@ -87,21 +87,27 @@ function checkItemPicked(id){
     console.log(id);
     userItemChoiceID = id;
     console.log(userItemChoiceID);
+    
 }
 function handleOnClick()
 {
     addCheckoutTransaction(userItemChoiceID);
+    updateInventoryItems(userItemChoiceID)
 }
 
 function addCheckoutTransaction(userItemChoiceID){
     const transactionAPI = "https://localhost:5001/api/transaction";
     const enteredEmpID = parseInt(document.getElementById("empID").value); 
     const chosenItemID =  userItemChoiceID;
-    const checkoutAdminID = parseInt(document.getElementById("checkoutadminid").value);
+    var getAdmin = window.location.search;
+    var parameters = new URLSearchParams(getAdmin);
+    const adminCheckingOutItemID = parseInt(parameters.get("adminID"));
+    console.log(adminCheckingOutItemID);
+    //const checkoutAdminID = parseInt(document.getElementById("checkoutadminid").value);
     let transaction = {
         empID: enteredEmpID,
         itemID: chosenItemID,
-        checkoutAdminID: checkoutAdminID
+        checkoutAdminID: adminCheckingOutItemID
     }
     fetch(transactionAPI, {
         method: "POST",
@@ -114,6 +120,7 @@ function addCheckoutTransaction(userItemChoiceID){
     .then((response)=>{
         console.log(response);
     })
+    checkEmployeeEligibility();
 }
 function updateTransactionTable(){
     var transID = document.getElementById("updateTransactionID").value ;
@@ -146,24 +153,13 @@ function updateTransactionTable(){
         })
 }
 
-function updateInventoryItems()
+function updateInventoryItems(userItemChoiceID)
 {
-    var conditions = document.getElementsByName('condition');
-    var condition_value;
-    for(var i = 0; i < conditions.length; i++){
-    if(conditions[i].checked){
-        condition_value = conditions[i].value;
-    }
-    // condition_value = String(condition_value);
-    const itemID1 = document.getElementById("updateItemID").value;
-    var itemIDAPI = parseInt(itemID1, 32);
-    const InventoryItemsURL = "https://localhost:5001/api/inventory/" + itemID1;
+    
+    const InventoryItemsURL = "https://localhost:5001/api/inventory/itemcheckedoutstatus/" + userItemChoiceID;
     const updatedInventory = {
-        itemID: itemIDAPI,
-        itemName: "test",
-        itemComments: condition_value,
-        "itemCheckedOutStatus": 0,
-        dateCommentsUpdated: "2021-04-28T09:10:21.120Z"
+        itemID: userItemChoiceID,
+        itemCheckedOutStatus: 1
     }
     fetch(InventoryItemsURL, {
     method: "PUT",
@@ -178,7 +174,7 @@ function updateInventoryItems()
         })
 }
 
-}
+
 
 
 function displayEmployeeTransactions(){

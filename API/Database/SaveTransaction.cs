@@ -27,6 +27,7 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         public void UpdateTransactionReturnDate(Transaction transaction) 

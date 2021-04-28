@@ -79,6 +79,7 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
+            con.Close();
         }
         // deletes item entirely from the database
         public void DeleteInventoryItem(InventoryItem item)
