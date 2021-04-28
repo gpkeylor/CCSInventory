@@ -25,7 +25,6 @@ function addInventoryItem()
     });
     getUpdateInventoryItems();
     getDeleteInventoryItems();
-    
 }
 //gets inventory items
 function getDeleteInventoryItems()
@@ -111,6 +110,8 @@ function updateItemChoice(id){
 }
 function handleOnClick(){
     updateItem(userChoice, itemIdChosenToUpdate);
+    getUpdateInventoryItems();
+    getDeleteInventoryItems();
 }
 
 
@@ -133,6 +134,7 @@ function updateItem(userChoice, itemIdChosenToUpdate)
             }
         })
     })
+    
     if(userChoice == "name")
     {
         const itemNameAPI = "https://localhost:5001/api/inventory/itemname/" + itemIdChosenToUpdate;
@@ -150,9 +152,10 @@ function updateItem(userChoice, itemIdChosenToUpdate)
                 body: JSON.stringify(updatedItem)
         }).then((response)=>{
             console.log(response);
-            getUpdateInventoryItems();
         })
     }
+    getUpdateInventoryItems();
+    getDeleteInventoryItems();
     if(userChoice == "comments")
     {
         const itemNameAPI = "https://localhost:5001/api/inventory/itemcomments/"+ itemIdChosenToUpdate;
@@ -171,10 +174,10 @@ function updateItem(userChoice, itemIdChosenToUpdate)
                 body: JSON.stringify(updatedItem)
         }).then((response)=>{
             console.log(response);
-            getUpdateInventoryItems();
         })
     } 
-    //Need to fix this code below
+    getUpdateInventoryItems();
+    getDeleteInventoryItems();
     if(userChoice == "checkedout")
     {
         const itemNameAPI = "https://localhost:5001/api/inventory/itemcheckedoutstatus/" + itemIdChosenToUpdate;
@@ -193,8 +196,10 @@ function updateItem(userChoice, itemIdChosenToUpdate)
                 body: JSON.stringify(updatedItem)
         }).then((response)=>{
             console.log(response);
-            getUpdateInventoryItems();
+            
         })
+        getUpdateInventoryItems();
+        getDeleteInventoryItems();
     }
 }
 

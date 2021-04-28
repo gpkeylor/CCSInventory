@@ -34,15 +34,26 @@ namespace api.Controllers
         }
 
         // POST: api/employee
+        [EnableCors("AnotherPolicy")]
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
         // PUT: api/employee/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [EnableCors("AnotherPolicy")]
+        [HttpPut("addnoofcheckedoutitems/{id}")]
+        public void AddNoOfTransactions(int id, [FromBody] Employee employee)
         {
+            SaveEmployeeData addObject = new SaveEmployeeData();
+            addObject.AddEmployeeNoOfItemsCheckedOut(employee);
+        }
+        [EnableCors("AnotherPolicy")]
+        [HttpPut("subtractnoofcheckedoutitems/{id}")]
+        public void SubtractNoOfTransactions(int id, [FromBody] Employee employee)
+        {
+            SaveEmployeeData addObject = new SaveEmployeeData();
+            addObject.SubtractEmployeeNoOfItemsCheckedOut(employee);
         }
 
         // DELETE: api/ApiWithActions/5

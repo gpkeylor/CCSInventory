@@ -24,7 +24,6 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
-            con.Close();
         }
         // edits or updates a current inventory item in our database 
         public void UpdateInventoryItemName(InventoryItem item)
@@ -42,7 +41,6 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
-            con.Close();
         }
         // edits the comments on a given inventory item
         public void UpdateInventoryItemComments(InventoryItem item)
@@ -79,7 +77,21 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
-            con.Close();
+        }
+         public void UpdateInventoryItemCheckedOutStatusReturned(InventoryItem item)
+        {
+            ConnectionString myConnection = new ConnectionString();
+            string cs = myConnection.cs;
+            using var con = new MySqlConnection(cs);
+
+            con.Open();
+
+            string stm = "UPDATE inventoryitem SET itemcheckedoutstatus = 0 WHERE itemID = @itemID";
+            using var cmd = new MySqlCommand(stm,con);
+            cmd.Parameters.AddWithValue("@itemID", item.ItemID);
+            cmd.Prepare();
+            
+            cmd.ExecuteNonQuery();
         }
         // deletes item entirely from the database
         public void DeleteInventoryItem(InventoryItem item)
@@ -96,7 +108,6 @@ namespace API.Database
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
-            con.Close();
         }
     }
 }

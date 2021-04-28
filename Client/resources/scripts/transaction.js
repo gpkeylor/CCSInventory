@@ -29,11 +29,6 @@ function checkEmployeeEligibility()
     }).then(function(json){
         var databaseEmpId;
         var numberOfItemsCheckedOut;
-        var today = new Date();
-        console.log(today);
-        var date =today.setDate(today.getDate() + 14); //sets the due date for 14 days after current date
-        date = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
-        console.log(date);
         json.forEach(employee => {
             if(employee.empID == enteredEmpId)
             {
@@ -46,7 +41,7 @@ function checkEmployeeEligibility()
                 displayEmployeeTransactions(enteredEmpId);
                 if(numberOfItemsCheckedOut < 3)
                 {
-                    let htmlEligible = "<p style = color:black !important;>Employee currently has " +numberOfItemsCheckedOut + " item(s) checked out. Employee is eligible to checkout another item. An item checked out today will be due: <b><u>"+ date+"</p>";
+                    let htmlEligible = "<p style = color:black !important;>Employee currently has " +numberOfItemsCheckedOut + " item(s) checked out. Employee is eligible to checkout another item.</p>";
                     document.getElementById("employeeEligibility").innerHTML = htmlEligible;
                 }
                 else{
@@ -89,12 +84,16 @@ function checkItemPicked(id){
     console.log(userItemChoiceID);
     
 }
-function handleOnClick()
+function handleOnClickCheckOut()
 {
     addCheckoutTransaction(userItemChoiceID);
-    updateInventoryItems(userItemChoiceID)
+    updateInventoryItemCheckedOut(userItemChoiceID);
+    addNoOfItemsCheckedOut();
+    completedTransactionCheckOut();
+
 }
 
+//Adds transaction 
 function addCheckoutTransaction(userItemChoiceID){
     const transactionAPI = "https://localhost:5001/api/transaction";
     const enteredEmpID = parseInt(document.getElementById("empID").value); 
@@ -103,7 +102,6 @@ function addCheckoutTransaction(userItemChoiceID){
     var parameters = new URLSearchParams(getAdmin);
     const adminCheckingOutItemID = parseInt(parameters.get("adminID"));
     console.log(adminCheckingOutItemID);
-    //const checkoutAdminID = parseInt(document.getElementById("checkoutadminid").value);
     let transaction = {
         empID: enteredEmpID,
         itemID: chosenItemID,
@@ -122,23 +120,18 @@ function addCheckoutTransaction(userItemChoiceID){
     })
     checkEmployeeEligibility();
 }
-function updateTransactionTable(){
-    var transID = document.getElementById("updateTransactionID").value ;
-    var adminID = document.getElementById("updateAdminID").value ;
-    var transAPIID = parseInt(transID,32);
-    var adminAPIID = parseInt(adminID,32);
-    const TransactionURL = "https://localhost:5001/api/transaction/" + transAPIID;
+//returns an item
+function updateTransactionTable(transactionID){
+    var getAdmin = window.location.search;
+    var parameters = new URLSearchParams(getAdmin);
+    const adminReturningItemID = parseInt(parameters.get("adminID"));
+    console.log(adminReturningItemID);
+    console.log(transactionID);
+    const TransactionURL = "https://localhost:5001/api/transaction/" + transactionID;
     
     const updatedTransaction = {
-                transactionID: transAPIID,
-                empID: 0,
-                itemID: 0,
-                checkOutDate: "2021-04-28T07:51:11.139Z",
-                dueDate: "2021-04-28T07:51:11.139Z",
-                returnDate: "2021-04-28T07:51:11.139Z",
-                checkoutAdminID: 0,
-                returnAdminID:  adminAPIID
-                
+                transactionID: transactionID,
+                returnAdminID:  adminReturningItemID  
     }
     fetch(TransactionURL, {
             method: "PUT",
@@ -153,9 +146,9 @@ function updateTransactionTable(){
         })
 }
 
-function updateInventoryItems(userItemChoiceID)
+//Checks out an item
+function updateInventoryItemCheckedOut(userItemChoiceID)
 {
-    
     const InventoryItemsURL = "https://localhost:5001/api/inventory/itemcheckedoutstatus/" + userItemChoiceID;
     const updatedInventory = {
         itemID: userItemChoiceID,
@@ -173,9 +166,113 @@ function updateInventoryItems(userItemChoiceID)
         checkEmployeeEligibility();
         })
 }
+function updateInventoryItemComments(itemID, condition){
+    var chosenItemID = parseInt(itemID);
+    const inventoryCommentsAPI = "https://localhost:5001/api/inventory/itemcomments/" + chosenItemID;
+    const updatedInventory = {
+        itemID: chosenItemID,
+        itemComments: condition
+    }
+    fetch(inventoryCommentsAPI, {
+        method: "PUT",
+        headers: {
+            "Accept" : "application/json",
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify(updatedInventory)
+        }).then((response)=>{
+        console.log(response);
+        })
+}
 
+function updateInventoryItemReturned(itemID)
+{
+    var chosenItemId = parseInt(itemID);
+    const InventoryItemsURL = "https://localhost:5001/api/inventory/itemcheckedoutstatusreturned/" + chosenItemId;
+    const updatedInventory = {
+        itemID: chosenItemId,
+    }
+    fetch(InventoryItemsURL, {
+    method: "PUT",
+    headers: {
+        "Accept" : "application/json",
+        "Content-Type" : "application/json"
+    },
+    body: JSON.stringify(updatedInventory)
+        }).then((response)=>{
+        console.log(response);
+        checkEmployeeEligibility();
+        })
+}
 
+var condition;
+function checkReturnCondition()
+{
+    returnChoice = document.getElementsByName('condition');
+    for(i=0; i<returnChoice.length;i++){
+        if(returnChoice[i].checked){
+            condition = returnChoice[i].value
+        }
+    }   
+}
 
+function completedTransactionCheckOut()
+{
+    var today = new Date();
+    console.log(today);
+    var date =today.setDate(today.getDate() + 14); //sets the due date for 14 days after current date
+    date = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
+    console.log(date);
+    let html = "<h4>Item succesfully checked out! Item will be due back: <b><u>"+ date+"</h4>";
+    document.getElementById("successfultransaction").innerHTML = html;
+    checkEmployeeEligibility();
+    
+}
+
+function addNoOfItemsCheckedOut()
+{
+    var empID = parseInt(document.getElementById("empID").value);
+    const empAddNoOfItemsAPI = "https://localhost:5001/api/employee/addnoofcheckedoutitems/" + empID;
+    const updatedEmployee = {
+        empID: empID
+    }
+    fetch(empAddNoOfItemsAPI, {
+    method: "PUT",
+    headers: {
+        "Accept" : "application/json",
+        "Content-Type" : "application/json"
+    },
+    body: JSON.stringify(updatedEmployee)
+        }).then((response)=>{
+        console.log(response);
+    })
+}
+function subtractNoOfItemsCheckedOut()
+{
+    var empID = parseInt(document.getElementById("empID").value);
+    const empAddNoOfItemsAPI = "https://localhost:5001/api/employee/subtractnoofcheckedoutitems/" + empID;
+    const updatedEmployee = {
+        empID: empID
+    }
+    fetch(empAddNoOfItemsAPI, {
+    method: "PUT",
+    headers: {
+        "Accept" : "application/json",
+        "Content-Type" : "application/json"
+    },
+    body: JSON.stringify(updatedEmployee)
+        }).then((response)=>{
+        console.log(response);
+    })
+}
+
+function handleOnClickReturn(transactionID, itemID, condition){
+    updateInventoryItemReturned(itemID);
+    updateTransactionTable(transactionID);
+    updateInventoryItemComments(itemID, condition);
+    subtractNoOfItemsCheckedOut();
+    successfulTransactionReturn();
+}
 
 function displayEmployeeTransactions(){
     const empTransactions = "https://localhost:5001/api/transaction/emptransactionsreturn";
@@ -194,7 +291,7 @@ function displayEmployeeTransactions(){
                 html+= "<tr><td>" + transaction.transactionID + 
                 "</td><td>" + transaction.empID + "</td>" 
                 +"<td>" + transaction.itemID + "</td>"  + "<td>" + transaction.checkOutDate + "</td>"
-                + "<td>" + transaction.dueDate + "</td>" + "<td>" + transaction.checkoutAdminID + "</td>" + "<td><button>Return</button></td>" 
+                + "<td>" + transaction.dueDate + "</td>" + "<td>" + transaction.checkoutAdminID + "</td>" + "<td><button onclick= \"handleOnClickReturn("+transaction.transactionID+",\'"+transaction.itemID+"')\">Return</button></td>" 
             } 
         });
         html+= "</table>";
@@ -202,4 +299,11 @@ function displayEmployeeTransactions(){
     }).catch(function(error){
         console.log(error);
     })
+}
+
+function successfulTransactionReturn()
+{
+    let html = "<h4> Item succesfully returned!<b> Thank You! </h4>";
+    document.getElementById("successfulreturn").innerHTML = html;
+    checkEmployeeEligibility();
 }
