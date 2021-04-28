@@ -26,10 +26,14 @@
             </div>  
         </nav>
         <!-- Banner Section-->
-        <div class="jumbotron text-center" id="jumbotrontext">
-            <h1 class="display-4" id="jumbotrondetail">Please Enter Employee ID</h1>
-            <p class="lead">Please enter an employee's ID to start a transaction.</p>
+        <div class="container h-100 d-flex">
+            <div class="jumbotron text-center col-md-6 col-md-offset-2 " id="jumbotrontext">
+                <h1 class="display-4" id="jumbotrondetail">Please Enter Employee ID</h1>
+                <p class="lead">Please enter an employee's ID to start a transaction.</p>
+            </div>
+
         </div>
+        
     
     
         <!--Submit Button-->
@@ -42,7 +46,7 @@
         </div>
     
         <div class="jumbotron text-center" id="jumbotrontext2">
-            <h1 class="display-4" id="jumbotrondetail">Checkout</h1>
+            <h1 class="ol-md-8 col-md-offset-2" id="jumbotrondetail">Checkout</h1>
         </div>
         
         <!--Information Columns-->
@@ -80,7 +84,7 @@
             </div>
         </div>
         <div class="jumbotron text-center" id="jumbotrontext2">
-            <h1 class="display-4" id="jumbotrondetail">Return</h1>
+            <h1 class="ol-md-8 col-md-offset-2" id="jumbotrondetail">Return</h1>
         </div>
          
 
@@ -114,11 +118,15 @@
             </div>
         </div>
         <div class="text-center text-md-left">
-            <input id="edittransaction" type="text" placeholder="Transaction ID" class="mytext" style = color:black !important;>
-            <input id="editadministrator" type="text" placeholder="Admin ID" class="mytext" style = color:black !important;>
+            <form onsubmit="updateTransaction()" method ="put">
+                <label for="fname">Return Transaction ID:</label>
+                <input id="editTransaction" type="text" placeholder="Transaction ID" class="mytext" style = color:black !important;>
+                <label for="lname">Return Admin ID:</label>
+                <input id="editAdministrator" type="text" placeholder="Admin ID" class="mytext" style = color:black !important;>
+                <input type="submit" value="Submit" onclick="updateTransaction()" >
+              </form>
             
-            <a class="btn btn-primary" onclick="updateTransaction()">Submit</a>
-            
+    
     
             </div>
         </div>

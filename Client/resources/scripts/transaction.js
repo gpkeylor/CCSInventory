@@ -108,28 +108,25 @@ function addCheckoutTransaction(){
 }
 
 function updateTransaction(){
-    const empTransactions ="https://localhost:5001/api/transaction";
-    var transactionID= document.getElementById("edittransaction").value
-    var adminID = document.getElementById("editadministrator").value
     
-    
+    var transactionID= document.getElementById("editTransaction").value;
+    var adminID = document.getElementById("editAdministrator").value;
+    const empTransactions ="https://localhost:5001/api/transaction" + transactionID;
+    const item = {
+        ReturnAdminID : adminID,
+        TransactionID : transactionID,
+        
+    }
     fetch(empTransactions, {
         method: "PUT",
         headers: {
             "Accept": 'application/json',
             "Content-Type": 'application/json',
         },
-        body: JSON.stringify({
-            TransactionID: transactionID,
-            ReturnAdminID: adminID,
-            
-            
-        })
-    })
-    .then((response)=>{
+        body: JSON.stringify(item)
+    }).then((response)=>{
         console.log(response)
         checkEmployeeEligibility();
-
     })
 }
 function updateInventoryItems()

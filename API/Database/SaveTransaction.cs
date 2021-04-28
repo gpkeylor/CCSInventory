@@ -37,10 +37,11 @@ namespace API.Database
 
             con.Open();
 
-            string stm = "UPDATE Transaction SET returnadminID=@returnadminID, returndate = CurDate() WHERE transactionID = @transactionID";
+            string stm = "UPDATE transaction SET returnadminID = @returnadminID, returndate = CurDate() WHERE transactionID = @transactionID";
             using var cmd = new MySqlCommand(stm,con);
-            cmd.Parameters.AddWithValue("@transactionID", transaction.TransactionID);
             cmd.Parameters.AddWithValue("@returnadminID", transaction.ReturnAdminID);
+            cmd.Parameters.AddWithValue("@transactionID", transaction.TransactionID);
+            
             cmd.Prepare();
             
             cmd.ExecuteNonQuery();
