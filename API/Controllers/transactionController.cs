@@ -52,7 +52,7 @@ namespace api.Controllers
 
         // Transaction: api/transaction
         [EnableCors("AnotherPolicy")]
-        [HttpPost]
+        [HttpPost("{id}")]
         public void Transaction([FromBody] Transaction transaction)
         {
             IUpdateTransactionReturnDate updateObject = new SaveTransaction();
@@ -60,11 +60,12 @@ namespace api.Controllers
         }
         // PUT: api/transaction/5
         [EnableCors("AnotherPolicy")]
-        [HttpPut]
+        [HttpPut("{id}")]
         public void Put([FromBody] Transaction item) //Used when returning an item to update it to current date
         {
             IUpdateTransactionReturnDate updateObject = new SaveTransaction();
             updateObject.UpdateTransactionReturnDate(item);
+
         }
 
         // DELETE: api/ApiWithActions/5

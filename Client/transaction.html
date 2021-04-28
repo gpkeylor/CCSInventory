@@ -118,11 +118,13 @@
             </div>
         </div>
         <div class="text-center text-md-left">
-                <label for="fname">Return Transaction ID:</label>
-                <input type ="text" name="updateTransID" id="updateTransactionID">
+                <label for="fname"> Transaction ID:</label>
+                <input type ="number" name="updateTransID" id="updateTransactionID">
+                <label for="lname">Item ID:</label>
+                <input type ="number" name="updateId" id="updateItemID">
                 <label for="lname">Return Admin ID:</label>
-                <input type ="text" name="updateAdId" id="updateAdminID">
-                <input type="submit" value="Submit" onclick="updateTransaction()">
+                <input type ="number" name="updateAdId" id="updateAdminID">
+                <input type="submit" value="Submit" onclick="updateTransactionTable(); updateInventoryItems()">
 
             
     

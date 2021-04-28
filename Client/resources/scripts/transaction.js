@@ -106,44 +106,65 @@ function addCheckoutTransaction(){
         console.log(response);
     })
 }
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-       next();
- });
-function updateTransaction(){
-    
-    var transactionID = document.getElementById("updateTransactionID").value;
-    var adminID = document.getElementById("updateAdminID").value;
-    const empTransactions ="https://localhost:5001/api/transaction/" + transactionID;
-    const item = {
-        TransactionID : transactionID,
-        ReturnAdminID : adminID,
+function updateTransactionTable(){
+    const transID = document.getElementById("updateTransactionID").value;
+    const adminID = document.getElementById("updateAdminID").value ;
+    const TransactionURL = "https://localhost:5001/api/transaction/" + transID;
+    const updatedTransaction = {
+                "transactionID": 4,
+                "empID": 0,
+                "itemID": 0,
+                "checkOutDate": "2021-04-28T07:51:11.139Z",
+                "dueDate": "2021-04-28T07:51:11.139Z",
+                "returnDate": "2021-04-28T07:51:11.139Z",
+                "checkoutAdminID": 0,
+                "returnAdminID": 3
     }
-    fetch(empTransactions, {
-        method: "PUT",
-        headers: {
-            
-            "Accept": 'application/json',
-            "Content-Type": 'application/json',
-        },
-        body: JSON.stringify(item)
-    }).then((response)=>{
-        console.log(response)
-        checkEmployeeEligibility();
-    })
+    
+ 
+    fetch(TransactionURL, {
+            method: "PUT",
+            headers: {
+                "Accept" : "application/json",
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(updatedTransaction)
+        }).then((response)=>{
+            console.log(response);
+            checkEmployeeEligibility();
+        })
 }
+
 function updateInventoryItems()
 {
-    var conditions = document.getElementsByName('condition');
-    var condition_value;
-    for(var i = 0; i < conditions.length; i++){
-    if(conditions[i].checked){
-        condition_value = conditions[i].value;
+    // var conditions = document.getElementsByName('condition');
+    // var condition_value;
+    // for(var i = 0; i < conditions.length; i++){
+    // if(conditions[i].checked){
+    //     condition_value = conditions[i].value;
+    // }
+    const itemID1 = document.getElementById("updateItemID").value;
+    const InventoryURL = "https://localhost:5001/api/inventory/" + 5;
+    const updatedInventory = {
+        "itemID": 5,
+        "itemName": "test",
+        "itemComments": "1-Good Condition",
+        "itemCheckedOutStatus": 0,
+        "dateCommentsUpdated": "2021-04-28T09:10:21.120Z"
     }
+    fetch(InventoryURL, {
+    method: "PUT",
+    headers: {
+        "Accept" : "application/json",
+        "Content-Type" : "application/json"
+    },
+    body: JSON.stringify(updatedInventory)
+        }).then((response)=>{
+        console.log(response);
+        checkEmployeeEligibility();
+})
 }
-}
+
 
 function displayEmployeeTransactions(){
     const empTransactions = "https://localhost:5001/api/transaction/emptransactionsreturn";
