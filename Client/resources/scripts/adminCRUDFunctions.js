@@ -1,3 +1,9 @@
+function start()
+{
+    getDeleteInventoryItems();
+    getUpdateInventoryItems();
+}
+
 function addInventoryItem()
 {
     const postItemApiUrl = "https://localhost:5001/api/inventory";
@@ -19,7 +25,7 @@ function addInventoryItem()
     });
 }
 //gets inventory items
-function getInventoryItem()
+function getDeleteInventoryItems()
 {
     const allItemApiUrl = "https://localhost:5001/api/inventory";
     fetch(allItemApiUrl).then(function(response){
@@ -36,7 +42,7 @@ function getInventoryItem()
             + inventoryItem.itemCheckedOutStatus + "</td><td><button class =\"btn-primary\" onclick = \"deleteInventoryItem("+inventoryItem.itemID+")\">Delete</button></tr>";
         });
         html += "</ul";
-        document.getElementById("inventory").innerHTML = html;
+        document.getElementById("deleteinventory").innerHTML = html;
     }).catch(function(error)
     {
         console.log(error);
@@ -57,5 +63,29 @@ function deleteInventoryItem(id)
     }).then((response)=>{
         console.log(response);
         getInventoryItem();
+    });
+}
+
+function getUpdateInventoryItems()
+{
+    const allItemApiUrl = "https://localhost:5001/api/inventory";
+    fetch(allItemApiUrl).then(function(response){
+        return response.json();
+    }).then(function(json){
+        console.log(json);
+        let html= "<table class=\"table-bordered table-hover\">";
+        html+= "<tr><th><b>ItemID</th><th><b>Item Name</th>";
+        html+= "<th><b>Item Comments</th><th><b>Date Comments Updated</th>";
+        html+= "<th><b>Checked Out Status</th><th></th>";
+        json.forEach(inventoryItem => {
+            html += "<tr><td>" + inventoryItem.itemID + "</td><td>" + inventoryItem.itemName + "<br><button class =\"btn-primary\" onclick = \"updateItemName("+inventoryItem.itemID+")\">Update</button></td><td>" 
+            + inventoryItem.itemComments + "<br><button class =\"btn-primary\" onclick = \"updateItemComments("+inventoryItem.itemID+")\">Update</button></td><td>" + inventoryItem.dateCommentsUpdated + "</td>"+ "<td>" 
+            + inventoryItem.itemCheckedOutStatus + "<br><button class =\"btn-primary\" onclick = \"updateItemCheckedOutStatus("+inventoryItem.itemID+")\">Update</button></td><td></td></tr>";
+        });
+        html += "</ul";
+        document.getElementById("updateinventory").innerHTML = html;
+    }).catch(function(error)
+    {
+        console.log(error);
     });
 }
