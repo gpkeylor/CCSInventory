@@ -53,26 +53,26 @@ namespace api.Controllers
 
         // PUT: api/inventory/5
         [EnableCors("AnotherPolicy")]
-        [HttpPut("itemname/{id}")]//I think this is how you decorate the http in order to update just names
-        public void PutItemName(int id, [FromBody] InventoryItem item)
+        [HttpPut("{id}")]
+        public void PutInventory([FromBody] InventoryItem item)
         {
             IUpdateInventoryItem updateObject = new SaveInventoryItemData();
-            updateObject.UpdateInventoryItemName(item);
+            updateObject.UpdateInventoryItem(item);
         }
-        [EnableCors("AnotherPolicy")]
-        [HttpPut("itemcomments/{id}")] //I think this is how you decorate the http in order to update just comments
-        public void PutItemComments(int id, [FromBody] InventoryItem item)
-        {
-            IUpdateInventoryItem updateObject = new SaveInventoryItemData();
-            updateObject.UpdateInventoryItemComments(item);
-        }
-        [EnableCors("AnotherPolicy")]
-        [HttpPut("itemcheckedoutstatus/{id}")]//I think this is how you decorate the http in order to update just checkedoutstatus
-        public void PutItemCheckedOutStatus(int id, [FromBody] InventoryItem item)
-        {
-            IUpdateInventoryItem updateObject = new SaveInventoryItemData();
-            updateObject.UpdateInventoryItemCheckedOutStatus(item);
-        }
+        // [EnableCors("AnotherPolicy")]
+        // [HttpPut("itemcomments/{id}")] //I think this is how you decorate the http in order to update just comments
+        // public void PutItemComments(int id, [FromBody] InventoryItem item)
+        // {
+        //     IUpdateInventoryItem updateObject = new SaveInventoryItemData();
+        //     updateObject.UpdateInventoryItemName(item);
+        // }
+        // [EnableCors("AnotherPolicy")]
+        // [HttpPut("itemcheckedoutstatus/{id}")]//I think this is how you decorate the http in order to update just checkedoutstatus
+        // public void PutItemCheckedOutStatus(int id, [FromBody] InventoryItem item)
+        // {
+        //     IUpdateInventoryItem updateObject = new SaveInventoryItemData();
+        //     updateObject.UpdateInventoryItemName(item);
+        // }
 
         // DELETE: api/ApiWithActions/5
         [EnableCors("AnotherPolicy")]

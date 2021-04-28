@@ -108,6 +108,70 @@ function addCheckoutTransaction(){
         console.log(response);
     })
 }
+function updateTransactionTable(){
+    var transID = document.getElementById("updateTransactionID").value ;
+    var adminID = document.getElementById("updateAdminID").value ;
+    var transAPIID = parseInt(transID,32);
+    var adminAPIID = parseInt(adminID,32);
+    const TransactionURL = "https://localhost:5001/api/transaction/" + transAPIID;
+    
+    const updatedTransaction = {
+                transactionID: transAPIID,
+                empID: 0,
+                itemID: 0,
+                checkOutDate: "2021-04-28T07:51:11.139Z",
+                dueDate: "2021-04-28T07:51:11.139Z",
+                returnDate: "2021-04-28T07:51:11.139Z",
+                checkoutAdminID: 0,
+                returnAdminID:  adminAPIID
+                
+    }
+    fetch(TransactionURL, {
+            method: "PUT",
+            headers: {
+                "Accept" : "application/json",
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(updatedTransaction)
+        }).then((response)=>{
+            console.log(response);
+            checkEmployeeEligibility();
+        })
+}
+
+function updateInventoryItems()
+{
+    var conditions = document.getElementsByName('condition');
+    var condition_value;
+    for(var i = 0; i < conditions.length; i++){
+    if(conditions[i].checked){
+        condition_value = conditions[i].value;
+    }
+    // condition_value = String(condition_value);
+    const itemID1 = document.getElementById("updateItemID").value;
+    var itemIDAPI = parseInt(itemID1, 32);
+    const InventoryItemsURL = "https://localhost:5001/api/inventory/" + itemID1;
+    const updatedInventory = {
+        itemID: itemIDAPI,
+        itemName: "test",
+        itemComments: condition_value,
+        "itemCheckedOutStatus": 0,
+        dateCommentsUpdated: "2021-04-28T09:10:21.120Z"
+    }
+    fetch(InventoryItemsURL, {
+    method: "PUT",
+    headers: {
+        "Accept" : "application/json",
+        "Content-Type" : "application/json"
+    },
+    body: JSON.stringify(updatedInventory)
+        }).then((response)=>{
+        console.log(response);
+        checkEmployeeEligibility();
+        })
+}
+
+}
 
 
 function displayEmployeeTransactions(){
