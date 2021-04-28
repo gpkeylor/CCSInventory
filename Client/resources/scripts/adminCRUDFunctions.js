@@ -175,7 +175,8 @@ function updateItem(userChoice, itemIdChosenToUpdate)
             console.log(response);
             getUpdateInventoryItems();
         })
-    }
+    } 
+    //Need to fix this code below
     if(userChoice == "checkedout")
     {
         const itemNameAPI = "https://localhost:5001/api/inventory/itemcheckedoutstatus/" + itemIdChosenToUpdate;
