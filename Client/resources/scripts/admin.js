@@ -12,7 +12,7 @@ function getAdministrator()
         json.forEach(administrator => {
             if (administrator.adminID == enteredId)
             {
-               window.location ="\ transaction.html?adminID="+enteredId;
+               window.location ="\ transaction.html";
             }
             else{
                 displayErrorMessage();

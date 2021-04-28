@@ -98,14 +98,11 @@ function addCheckoutTransaction(userItemChoiceID){
     const transactionAPI = "https://localhost:5001/api/transaction";
     const enteredEmpID = parseInt(document.getElementById("empID").value); 
     const chosenItemID =  userItemChoiceID;
-    var getAdmin = window.location.search;
-    var parameters = new URLSearchParams(getAdmin);
-    const adminCheckingOutItemID = parseInt(parameters.get("adminID"));
-    console.log(adminCheckingOutItemID);
+    var adminID = parseInt(document.getElementById("adminid").value);
     let transaction = {
         empID: enteredEmpID,
         itemID: chosenItemID,
-        checkoutAdminID: adminCheckingOutItemID
+        checkoutAdminID: adminID
     }
     fetch(transactionAPI, {
         method: "POST",
@@ -122,16 +119,12 @@ function addCheckoutTransaction(userItemChoiceID){
 }
 //returns an item
 function updateTransactionTable(transactionID){
-    var getAdmin = window.location.search;
-    var parameters = new URLSearchParams(getAdmin);
-    const adminReturningItemID = parseInt(parameters.get("adminID"));
-    console.log(adminReturningItemID);
-    console.log(transactionID);
+    var adminID = parseInt(document.getElementById("adminid").value);
     const TransactionURL = "https://localhost:5001/api/transaction/" + transactionID;
     
     const updatedTransaction = {
                 transactionID: transactionID,
-                returnAdminID:  adminReturningItemID  
+                returnAdminID:  adminID 
     }
     fetch(TransactionURL, {
             method: "PUT",
@@ -272,6 +265,7 @@ function handleOnClickReturn(transactionID, itemID, condition){
     updateTransactionTable(transactionID);
     updateInventoryItemComments(itemID, condition);
     subtractNoOfItemsCheckedOut();
+    successfulTransactionReturn(); 
 }
 
 function displayEmployeeTransactions(){
@@ -303,7 +297,7 @@ function displayEmployeeTransactions(){
 
 function successfulTransactionReturn()
 {
-    let html = "<h4> Item succesfully returned!<b> Thank You! </h4>";
+    let html = "<h4> Item succesfully returned! Thank You! </h4>";
     document.getElementById("successfulreturn").innerHTML = html;
     checkEmployeeEligibility();
 }
