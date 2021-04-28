@@ -23,6 +23,9 @@ function addInventoryItem()
     }).then((response)=>{
         console.log(response);
     });
+    
+    getDeleteInventoryItems();
+    getUpdateInventoryItems();
 }
 //gets inventory items
 function getDeleteInventoryItems()
@@ -62,7 +65,8 @@ function deleteInventoryItem(id)
         },
     }).then((response)=>{
         console.log(response);
-        getInventoryItem();
+        getDeleteInventoryItems();
+        getUpdateInventoryItems();
     });
 }
 
@@ -93,6 +97,7 @@ function getUpdateInventoryItems()
 
 var updateChoice;
 var userChoice;
+var itemIdChosenToUpdate;
 function updateItemChoice(id){
     updateChoice = document.getElementsByName('choice');
     for(i=0; i<updateChoice.length;i++){
@@ -100,38 +105,41 @@ function updateItemChoice(id){
             userChoice = updateChoice[i].value
         }
     }
+    console.log(userChoice);
+    console.log(id);
+    itemIdChosenToUpdate = id;
 }
-function updateItem(userChoice, id)
+function handleOnClick(){
+    updateItem(userChoice, itemIdChosenToUpdate);
+}
+
+
+function updateItem(userChoice, itemIdChosenToUpdate)
 {
     const itemAPI = "https://localhost:5001/api/inventory";
-    const name;
-    const comments;
-    const itemcheckedoutstatus;
+    var name ="";
+    var comments = "";
+    var itemcheckedoutstatus = "";
     fetch(itemAPI).then(function(response){
         return response.json();
     }).then(function(json){
         console.log(json);
-    }).then(function(json){
-        console.log(json);
         json.forEach(item => {
-            if(id == item.itemID)
+            if(itemIdChosenToUpdate == item.itemID)
             {
                 name = item.itemName;
                 comments = item.itemComments;
-                datecommentsupated = item.dateCommentsUpdated;
                 itemcheckedoutstatus = item.itemCheckedOutStatus;
             }
         })
     })
     if(userChoice == "name")
     {
-        const itemNameAPI = "https://localhost:5001/api/inventory/itemname/" + id;
+        const itemNameAPI = "https://localhost:5001/api/inventory/itemname/" + itemIdChosenToUpdate;
         name = document.getElementById("updateValue").value ;
         const updatedItem ={
-                itemID: id,
+                itemID: itemIdChosenToUpdate,
                 itemName: name,
-                itemComments: comments, 
-                itemCheckedOutStatus: itemcheckedoutstatus
             }
         fetch(itemNameAPI, {
                 method: "PUT",
@@ -147,13 +155,11 @@ function updateItem(userChoice, id)
     }
     if(userChoice == "comments")
     {
-        const itemNameAPI = "https://localhost:5001/api/inventory/itemcomments/" + id;
+        const itemNameAPI = "https://localhost:5001/api/inventory/itemcomments/"+ itemIdChosenToUpdate;
         comments = document.getElementById("updateValue").value ;
         const updatedItem ={
-                itemID: id,
-                itemName: name,
-                itemComments: comments, 
-                itemCheckedOutStatus: itemcheckedoutstatus,
+                itemID: itemIdChosenToUpdate,
+                itemComments: comments
             }
         fetch(itemNameAPI, {
                 method: "PUT",
@@ -169,13 +175,11 @@ function updateItem(userChoice, id)
     }
     if(userChoice == "checkedoutstatus")
     {
-        const itemNameAPI = "https://localhost:5001/api/inventory/itemcheckedoutstatus/" + id;
+        const itemNameAPI = "https://localhost:5001/api/inventory/itemcheckedoutstatus/"+itemIdChosenToUpdate;
         checkedoutstatus = document.getElementById("updateValue").value ;
         const updatedItem ={
-                itemID: id,
-                itemName: name,
-                itemComments: comments, 
-                itemCheckedOutStatus: itemcheckedoutstatus,
+                itemID: itemIdChosenToUpdate,
+                itemCheckedOutStatus: checkedoutstatus
             }
         fetch(itemNameAPI, {
                 method: "PUT",

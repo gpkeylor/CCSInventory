@@ -10,7 +10,8 @@ namespace API.Models
         public int ItemCheckedOutStatus{get; set;}
         public DateTime DateCommentsUpdated{get; set;}
 
-        //When a new item is created, automatically sets checkedoutstatus to 0, itemcomments to 1 (perfect condtions), and datecommentsupdated to the current date
+        //When a new item is created, automatically sets checkedoutstatus to 0, itemcomments to 1 (perfect condtions),
+        // and datecommentsupdated to the current date
         public InventoryItem()
         {
             ItemCheckedOutStatus = 0;
